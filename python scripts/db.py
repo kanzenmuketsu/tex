@@ -1,6 +1,7 @@
 from getpass import getpass
 from mysql.connector import connect, Error
 
+connection = None
 try:
     connection = connect(
         host="localhost",
@@ -11,20 +12,25 @@ try:
 except Error as e:
     print(e)
 
-
 def check_exist(username):
     query = f'SELECT username FROM site_db.users'
     with connection.cursor() as cursor:
         cursor.execute(query)
-        result = tuple(cursor.fetchall())
-        return username in result
+        result = cursor.fetchall()
+        list_usernames = []
+        for name in result:
+            list_usernames.append(name[0])
+        return username in list_usernames
 
 def insert_one(dictionary_data: dict): #username: username
     values = list(dictionary_data.values())
     query = f'INSERT INTO users (username, phone_number, hashed_pass) VALUES (\'{values[0]}\', \'{values[1]}\', \'{values[2]}\')'
-    with connection.cursor() as cursor:
-        cursor.execute(query)
-        connection.commit()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(query)
+            connection.commit()
+    except:
+        print('insertion user error')
 
 def get_user_from_db(username):
     query = f'SELECT * FROM site_db.users WHERE users.username = \'{username}\''

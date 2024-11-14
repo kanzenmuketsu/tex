@@ -19,6 +19,11 @@
   padding: 30px;
 }
 
+.ads {
+    background: #aaaaaa;
+}
+
+
 .u-section-1 .u-text-1 {
   font-size: 3rem;
   --animation-custom_in-translate_x: -200px;

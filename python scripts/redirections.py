@@ -1,9 +1,27 @@
 from app import  app
 from fastapi.responses import FileResponse
+from fastapi.requests import Request
+from jinja2 import Environment, select_autoescape, FileSystemLoader
 
 @app.get('/index.html')
-async def main():
+async def main(request: Request):
+    if request.cookies.get('auth_cookie'):
+        env = Environment(
+            loader=FileSystemLoader('../jinja2 templates'),
+            autoescape=select_autoescape(['html'])
+        )
+        template = env.get_template('index_jinja.html')
+        rendered_page = template.render(
+            display="inline"
+        )
+        with open('../templates/index.html', 'w', encoding="utf8") as file:
+            file.write(rendered_page)
+
+        return FileResponse('../templates/личный-кабинет.html')
+
     return FileResponse('../templates/index.html')
+
+
 
 @app.get('/nicepage.css')
 async def main():
@@ -49,8 +67,24 @@ async def main():
 #              лк
 #############################
 @app.get('/личный-кабинет.html')
-async def main():
-    return FileResponse('../templates/личный-кабинет.html')
+async def main(request: Request):
+    if request.cookies.get('auth_cookie'):
+        env = Environment(
+             loader=FileSystemLoader('../jinja2 templates'),
+             autoescape=select_autoescape(['html'])
+            )
+        template = env.get_template('личный-кабинет_jinja.html')
+        rendered_page = template.render(
+            username="kevin smith"
+        )
+        with open('../templates/личный-кабинет.html', 'w', encoding="utf8") as file:
+            file.write(rendered_page)
+
+        return FileResponse('../templates/личный-кабинет.html')
+
+    return FileResponse('../templates/index.html')
+
+
 
 @app.get('/личный-кабинет.css')
 async def main():

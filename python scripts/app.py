@@ -1,16 +1,17 @@
-from typing import Annotated
 
-from fastapi import FastAPI, Form, Response, Depends, HTTPException, Request
-from fastapi.responses import FileResponse, JSONResponse, HTMLResponse, RedirectResponse
+from fastapi import FastAPI, Form, Response, HTTPException, Request
+from fastapi.responses import FileResponse, JSONResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 import uvicorn
 from db import *
 from model import UserInDb
-from auth import password_hash, create_token, current_user, authenticate_form_db
+from auth import password_hash, create_token, authenticate_form_db
 
 from starlette import status
 
 from pymongo.errors import PyMongoError
+from jinja2 import Environment, select_autoescape, FileSystemLoader
+
 
 
 
@@ -21,18 +22,24 @@ templates = Jinja2Templates(directory='.')
 
 
 
-
 #######################################
 ##                   / 
 ######################################
 
 @app.get('/')
 async def main():
-    login = False
-    if login:
-        return FileResponse('../templates/личный-кабинет.html')
-    else:
-        return FileResponse('../templates/index.html')
+    env = Environment(
+        loader=FileSystemLoader('../jinja2 templates'),
+        autoescape=select_autoescape(['html'])
+    )
+    template = env.get_template('index_jinja.html')
+    rendered_page = template.render(
+        display="none"
+    )
+    with open('../templates/index.html', 'w', encoding="utf8") as file:
+        file.write(rendered_page)
+
+    return FileResponse('../templates/index.html')
 
 
 @app.post('/users/register')
@@ -63,11 +70,13 @@ async def users_register(response: Response,
     response.set_cookie(key='auth_cookie', value=access_token)
     return {'massage': 'register was successful'}
 
-@app.post('/users/logout')
+@app.post('/logout')
 async def users_logout(request: Request,
                        response: Response):
     response.delete_cookie(key='auth_cookie')
-    return {'detail': 'successfuly logout'}
+    return RedirectResponse('/')
+
+
 
 @app.post('/login')
 async def users_login(response: Response,
@@ -82,16 +91,13 @@ async def users_login(response: Response,
         return HTTPException(status_code=200)
     return HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail='something went wrong')
 
-@app.post('/t')
-async def test():
-        return {'ok': 'ok'}
-
 @app.get('/users/test')
 async def test(request: Request):
     if request.cookies.get('auth_cookie'):
         return {'cookie':request.cookies.get('auth_cookie'),
                 'ok': 'ok'}
-    return
+    return {'cookie':'a',
+                'ok': 'ok'}
 
 
 

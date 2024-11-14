@@ -5,11 +5,9 @@ from jose import jwt
 from passlib.context import CryptContext
 from datetime import timedelta, datetime
 from typing import Annotated
+from db import get_user_from_db, check_exist
 
-from db import check_exist, get_user_from_db
-
-
-secret_key = 'your secret key'
+secret_key = 'ifuioeruoiwurioewurioweuoiruewoi'
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_HOUR = 24
 
