@@ -9,6 +9,7 @@ try:
         password='sqlpass',
         auth_plugin='mysql_native_password',
         database="site_db")
+    print("db connected")
 except Error as e:
     print(e)
 

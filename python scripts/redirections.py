@@ -35,6 +35,10 @@ async def main():
 async def main():
     return FileResponse('../jquery.js')
 
+@app.get('/custom.js')
+async def main():
+    return FileResponse('../custom.js')
+
 @app.get('/nicepage.js')
 async def main():
     return FileResponse('../nicepage.js')

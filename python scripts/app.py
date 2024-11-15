@@ -25,9 +25,7 @@ templates = Jinja2Templates(directory='.')
 #######################################
 ##                   / 
 ######################################
-
-@app.get('/')
-async def main():
+def none_inline_index():
     env = Environment(
         loader=FileSystemLoader('../jinja2 templates'),
         autoescape=select_autoescape(['html'])
@@ -40,6 +38,10 @@ async def main():
         file.write(rendered_page)
 
     return FileResponse('../templates/index.html')
+
+@app.get('/')
+async def main():
+    return none_inline_index()
 
 
 @app.post('/users/register')
@@ -89,7 +91,7 @@ async def users_login(response: Response,
         access_token = create_token(data={'sub': username})
         response.set_cookie(key='auth_cookie', value=access_token)
         return HTTPException(status_code=200)
-    return HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail='something went wrong')
+    return HTTPException(status_code=status.HTTP_418_IM_A_TEAPOT)
 
 @app.get('/users/test')
 async def test(request: Request):
