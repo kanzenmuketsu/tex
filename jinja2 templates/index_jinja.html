@@ -121,8 +121,9 @@
 
   <section class="u-align-center u-black u-clearfix u-container-align-center u-container-style u-dialog-block u-opacity u-opacity-70 u-valign-middle u-dialog-section-11" id="carousel_56df">
       <div class="u-align-center u-border-4 u-border-palette-1-light-1 u-container-align-center u-container-style u-dialog u-palette-1-light-3 u-radius u-shape-round u-dialog-1">
-        <div class="u-container-layout u-valign-bottom u-container-layout-1">
+        <div class="u-container-layout u-valign-bottom u-container-layout-1" style="padding-bottom: 10px">
             <div id="555" style="display: {{display}}; color: #66e6c8;background: #ae0b0bcc;">Мы не узнали вас, проверьте, правильно ли вы ввели свои данные.</div>
+            <div id="666" style="display: {{display}}; color: #66e6c8;background: #ae0b0bcc;">Пароль должен иметь минимум 6 символов.</div>
           <div class="custom-expanded u-container-style u-group u-shape-rectangle u-group-1">
             <div class="u-container-layout u-container-layout-2">
               <h2 class="u-align-center u-text u-text-1">Присоединяйтесь&nbsp;<br>к нам
@@ -135,24 +136,24 @@
                     <div class="u-carousel-item u-form-step u-slide u-active">
                       <div class="u-form-email u-form-group u-label-none">
                         <label for="23" class="u-label u-text-grey-30 u-label-1">Email Address</label>
-                        <input id="username" type="text" placeholder="Имя пользователя" name="username" class="u-border-4 u-input u-input-rectangle u-radius u-input-1" required="" maxlength="40">
+                        <input id="username" type="email" placeholder="Имя пользователя" name="username" class="u-border-4 u-input u-input-rectangle u-radius u-input-1" required="" maxlength="40">
                       </div>
                     </div>
                     <div class="u-carousel-item u-form-step u-slide">
                       <div class="u-form-group u-label-none u-form-group-2">
                         <label for="23" class="u-label u-text-grey-30 u-label-2">Поле ввода</label>
-                        <input id="pass" type="text" placeholder="Пароль" name="password" class="u-border-4 u-input u-input-rectangle u-radius u-input-2" required="required" autofocus="autofocus">
+                        <input id="pass" type="password" placeholder="Пароль" name="password" class="u-border-4 u-input u-input-rectangle u-radius u-input-2" minlength="6" required="required" autofocus="autofocus">
                       </div>
                     </div>
                   </div>
                   <div class="u-align-center u-form-group u-form-submit u-label-none">
-                    <div id="message_bad" style="display: none" class="message_bad">Мы не узнали вас, проверьте, правильно ли вы ввели свои данные.</div>
+
                     <a href="#" class="u-black u-btn u-btn-step u-btn-step-prev u-button-style u-hidden u-btn-1">Назад</a>
                     <a href="#" class="u-black u-btn u-btn-step u-btn-step-next u-button-style u-btn-1">Дальше</a>
                     <a onclick="POST();return false;" href="#" class="u-black u-btn u-btn-submit u-button-style u-hidden u-btn-1" >Готово </a>
 
                   </div>
-                  <div class="u-form-send-message u-form-send-success" wfd-invisible="true">Добро пожаловать на сайт. Удачных покупок.</div>
+
 
 
                   </form>
@@ -164,6 +165,9 @@
               <h5 class="u-align-center u-text u-text-default u-text-3">
                 <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-hover-palette-4-dark-2 u-btn-4" data-href="политика.html" data-target="_blank"> Мы заботимся о ваших данных.</a>
               </h5>
+              <h6>
+                <a  style="margin: auto; margin-bot:0px" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-hover-palette-4-dark-2 u-btn-4" onclick="register();return false;" id="register" >Зарегистрироваться.</a>
+              </h6>
             </div>
           </div>
         </div>

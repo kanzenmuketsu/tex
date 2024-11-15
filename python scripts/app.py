@@ -5,9 +5,6 @@ from fastapi.templating import Jinja2Templates
 import uvicorn
 from db import *
 from model import UserInDb
-from auth import password_hash, create_token, authenticate_form_db
-
-from starlette import status
 
 from pymongo.errors import PyMongoError
 from jinja2 import Environment, select_autoescape, FileSystemLoader
@@ -25,7 +22,7 @@ templates = Jinja2Templates(directory='.')
 #######################################
 ##                   / 
 ######################################
-def none_inline_index():
+def none_index():
     env = Environment(
         loader=FileSystemLoader('../jinja2 templates'),
         autoescape=select_autoescape(['html'])
@@ -41,7 +38,7 @@ def none_inline_index():
 
 @app.get('/')
 async def main():
-    return none_inline_index()
+    return none_index()
 
 
 @app.post('/users/register')
@@ -79,19 +76,6 @@ async def users_logout(request: Request,
     return RedirectResponse('/')
 
 
-
-@app.post('/login')
-async def users_login(response: Response,
-                      username: str = Form(..., min_length=3),
-                      password: str = Form(..., min_length=6),):
-
-    if not username or not password:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="please fill the login form")
-    if authenticate_form_db(username=username,password=password):
-        access_token = create_token(data={'sub': username})
-        response.set_cookie(key='auth_cookie', value=access_token)
-        return HTTPException(status_code=200)
-    return HTTPException(status_code=status.HTTP_418_IM_A_TEAPOT)
 
 @app.get('/users/test')
 async def test(request: Request):

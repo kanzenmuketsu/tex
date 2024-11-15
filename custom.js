@@ -6,6 +6,9 @@ async function POST(){
     const formData = new URLSearchParams();
     formData.append("username", username);
     formData.append("password", pass);
+    if(pass.length < 6){
+        document.getElementById("666").style.display = 'inline';
+    }
 
     const Z = await fetch('/login', {
             method: 'POST',
@@ -19,6 +22,7 @@ async function POST(){
     const json = await Z.json();
     if (json["status_code"] == 418){
         document.getElementById("555").style.display = 'inline';
+        document.getElementById("666").style.display = 'none';
     }
     if (json["status_code"] == 200){
         window.location.href = "/личный-кабинет.html";

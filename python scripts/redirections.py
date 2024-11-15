@@ -1,7 +1,32 @@
+from starlette.responses import Response
+
 from app import  app
+from auth import *
+from fastapi import HTTPException, Form, Response
 from fastapi.responses import FileResponse
 from fastapi.requests import Request
 from jinja2 import Environment, select_autoescape, FileSystemLoader
+
+
+
+
+
+
+
+
+@app.post('/login')
+async def users_login(response: Response,
+                      username: str = Form(..., min_length=3),
+                      password: str = Form(..., min_length=6),):
+
+    if not username or not password:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="please fill the login form")
+    if authenticate_form_db(username=username,password=password):
+        access_token = create_token(data={'sub': username})
+        response.set_cookie(key='auth_cookie', value=access_token)
+        return HTTPException(status_code=200)
+    return HTTPException(status_code=status.HTTP_418_IM_A_TEAPOT)
+
 
 @app.get('/index.html')
 async def main(request: Request):
