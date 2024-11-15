@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="index.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="custom.js" defer=""></script>
+
     <meta name="generator" content="Nicepage 6.21.2, nicepage.com">
     <meta name="referrer" content="origin">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
@@ -122,7 +122,7 @@
   <section class="u-align-center u-black u-clearfix u-container-align-center u-container-style u-dialog-block u-opacity u-opacity-70 u-valign-middle u-dialog-section-11" id="carousel_56df">
       <div class="u-align-center u-border-4 u-border-palette-1-light-1 u-container-align-center u-container-style u-dialog u-palette-1-light-3 u-radius u-shape-round u-dialog-1">
         <div class="u-container-layout u-valign-bottom u-container-layout-1">
-            <div style="display: {{display}}; color: #66e6c8;background: #ae0b0bcc;">Мы не узнали вас, проверьте, правильно ли вы ввели свои данные.</div>
+            <div id="555" style="display: {{display}}; color: #66e6c8;background: #ae0b0bcc;">Мы не узнали вас, проверьте, правильно ли вы ввели свои данные.</div>
           <div class="custom-expanded u-container-style u-group u-shape-rectangle u-group-1">
             <div class="u-container-layout u-container-layout-2">
               <h2 class="u-align-center u-text u-text-1">Присоединяйтесь&nbsp;<br>к нам
@@ -146,13 +146,14 @@
                     </div>
                   </div>
                   <div class="u-align-center u-form-group u-form-submit u-label-none">
+                    <div id="message_bad" style="display: none" class="message_bad">Мы не узнали вас, проверьте, правильно ли вы ввели свои данные.</div>
                     <a href="#" class="u-black u-btn u-btn-step u-btn-step-prev u-button-style u-hidden u-btn-1">Назад</a>
                     <a href="#" class="u-black u-btn u-btn-step u-btn-step-next u-button-style u-btn-1">Дальше</a>
                     <a onclick="POST();return false;" href="#" class="u-black u-btn u-btn-submit u-button-style u-hidden u-btn-1" >Готово </a>
 
                   </div>
                   <div class="u-form-send-message u-form-send-success" wfd-invisible="true">Добро пожаловать на сайт. Удачных покупок.</div>
-                      <div class="u-form-send-error u-form-send-message" wfd-invisible="true">Мы не узнали вас, проверьте, правильно ли вы ввели свои данные.</div>
+
 
                   </form>
               </div>
@@ -353,4 +354,5 @@
     width: 340px;
   }
 }</style>
+<script type="text/javascript" src="custom.js"></script>
 </body></html>

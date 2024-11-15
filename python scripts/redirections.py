@@ -12,7 +12,7 @@ async def main(request: Request):
         )
         template = env.get_template('index_jinja.html')
         rendered_page = template.render(
-            display="inline"
+            display="none"
         )
         with open('../templates/index.html', 'w', encoding="utf8") as file:
             file.write(rendered_page)

@@ -1,5 +1,5 @@
 
-function POST(){
+async function POST(){
     var username = document.getElementById('username').value;
     var pass = document.getElementById('pass').value;
 
@@ -7,12 +7,21 @@ function POST(){
     formData.append("username", username);
     formData.append("password", pass);
 
-    fetch('/login', {
+    const Z = await fetch('/login', {
             method: 'POST',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             body: formData
-        })
-        .then(response => response.text())
-        .then(data => console.log('Успешно обработано:', data))
-        .catch(error => console.error('Ошибка обработки:', error));
+        });
+        //.then(response => response.status)
+        //.then(data => console.log('Успешно обработано:',data))
+        //.catch(error => console.error('Ошибка обработки:', error));
+
+    const json = await Z.json();
+    if (json["status_code"] == 418){
+        document.getElementById("555").style.display = 'inline';
+    }
+    if (json["status_code"] == 200){
+        window.location.href = "/личный-кабинет.html";
+    }
+
 }

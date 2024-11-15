@@ -32,7 +32,7 @@ def none_inline_index():
     )
     template = env.get_template('index_jinja.html')
     rendered_page = template.render(
-        display="none"
+        display='none'
     )
     with open('../templates/index.html', 'w', encoding="utf8") as file:
         file.write(rendered_page)
