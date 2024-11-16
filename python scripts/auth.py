@@ -47,6 +47,7 @@ def current_user(token: Annotated[str, get_cookie ]):
         return HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
 
     username = encoded_token.get('sub')
+    print('####', username)
     return check_exist(username)
 
 

@@ -1,13 +1,12 @@
 
-from fastapi import FastAPI, Form, Response, HTTPException, Request
-from fastapi.responses import FileResponse, JSONResponse, RedirectResponse
+from fastapi import FastAPI, Form, Response, Request
+from fastapi.responses import  JSONResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 import uvicorn
 from db import *
 from model import UserInDb
 
 from pymongo.errors import PyMongoError
-from jinja2 import Environment, select_autoescape, FileSystemLoader
 
 
 

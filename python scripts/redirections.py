@@ -9,11 +9,6 @@ from jinja2 import Environment, select_autoescape, FileSystemLoader
 
 
 
-
-
-
-
-
 @app.post('/login')
 async def users_login(response: Response,
                       username: str = Form(..., min_length=3),
