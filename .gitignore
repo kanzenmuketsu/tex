@@ -1,2 +1,3 @@
 venvwin/
 .idea/
+/python scripts/local_settings.py

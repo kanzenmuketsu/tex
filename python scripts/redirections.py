@@ -1,11 +1,58 @@
-from starlette.responses import Response
+from starlette.status import HTTP_200_OK
 
 from app import  app
 from auth import *
 from fastapi import HTTPException, Form, Response
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, RedirectResponse, JSONResponse
 from fastapi.requests import Request
 from jinja2 import Environment, select_autoescape, FileSystemLoader
+import mails
+from db import *
+from model import UserInDb
+from random import randint
+
+@app.post('/register')
+async def users_register(response: Response,
+                         username: str = Form(...),
+                         email: str = Form(...),
+                         password1: str = Form(...),
+                         password2: str = Form(...),
+                         email_id: str = Form(...),
+                         email_code: str = Form(...)):
+
+    if not username or not password1 or not password2 or not email:
+        return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={'massage': 'please fill the form'})
+    if password1 != password2:
+        return HTTPException(status_code=status.HTTP_409_CONFLICT)
+
+    if email_id not in mails.CODES:
+        id = str(randint(22, 88))
+        response.set_cookie(key='id', value=id, expires=120)
+        mails.send_email_code(id, email)
+        return HTTPException(status_code=status.HTTP_103_EARLY_HINTS, detail=email_id)
+
+    if email_code != mails.CODES[email_id]:
+        return HTTPException(status_code=status.HTTP_423_LOCKED)
+
+
+    form_data = UserInDb(username=username,
+                         email=email,
+                         hashed_password=password1)
+    if check_exist(form_data.username):
+        return HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail={'massage': 'user already exist'})
+
+    hashed_pass = password_hash.hash(password1)
+    form_data.hashed_password = hashed_pass
+
+    try:
+        insert_one(dict(form_data))
+    except:
+        return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                            content={'massage': 'Something went wrong'})
+
+    access_token = create_token(data={'sub': form_data.username})
+    response.set_cookie(key='auth_cookie', value=access_token)
+    return HTTPException(status_code=HTTP_200_OK, detail="success")
 
 
 
@@ -21,6 +68,13 @@ async def users_login(response: Response,
         response.set_cookie(key='auth_cookie', value=access_token)
         return HTTPException(status_code=200)
     return HTTPException(status_code=status.HTTP_418_IM_A_TEAPOT)
+
+
+@app.post('/logout')
+async def users_logout(request: Request,
+                       response: Response):
+    response.delete_cookie(key='auth_cookie')
+    return RedirectResponse('/')
 
 
 @app.get('/index.html')

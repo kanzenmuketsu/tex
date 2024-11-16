@@ -3,7 +3,7 @@ from pydantic import Field, BaseModel
 
 class User(BaseModel):
     username: str = Field(...)
-    phone_number: str = Field()
+    email: str = Field()
 
 
 class UserInDb(User):
