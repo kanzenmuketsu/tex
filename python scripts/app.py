@@ -17,7 +17,7 @@ templates = Jinja2Templates(directory='.')
 ######################################
 def none_index():
     env = Environment(
-        loader=FileSystemLoader('../jinja2 templates'),
+        loader=FileSystemLoader('../jinja2_templates'),
         autoescape=select_autoescape(['html'])
     )
     template = env.get_template('index_jinja.html')

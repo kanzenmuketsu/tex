@@ -81,7 +81,7 @@ async def users_logout(request: Request,
 async def main(request: Request):
     if request.cookies.get('auth_cookie'):
         env = Environment(
-            loader=FileSystemLoader('../jinja2 templates'),
+            loader=FileSystemLoader('../jinja2_templates'),
             autoescape=select_autoescape(['html'])
         )
         template = env.get_template('index_jinja.html')
@@ -148,7 +148,7 @@ async def main():
 async def main(request: Request):
     if request.cookies.get('auth_cookie'):
         env = Environment(
-             loader=FileSystemLoader('../jinja2 templates'),
+             loader=FileSystemLoader('../jinja2_templates'),
              autoescape=select_autoescape(['html'])
             )
         template = env.get_template('личный-кабинет_jinja.html')
