@@ -31,7 +31,7 @@ def check_exist(username):
 
 def insert_one(dictionary_data: dict): #username: username
     values = list(dictionary_data.values())
-    query = f'INSERT INTO users (username, phone_number, hashed_pass) VALUES (\'{values[0]}\', \'{values[1]}\', \'{values[2]}\')'
+    query = f'INSERT INTO users (username, email, hashed_password) VALUES (\'{values[0]}\', \'{values[1]}\', \'{values[2]}\')'
     try:
         with connection.cursor() as cursor:
             cursor.execute(query)
