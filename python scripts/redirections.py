@@ -1,3 +1,5 @@
+from itertools import product
+
 from starlette.status import HTTP_200_OK
 
 from app import  app
@@ -208,13 +210,24 @@ async def main():
 @app.get('/кости.html')
 async def main():
 
+    product1 = get_products_from_db(1)
+    product2 = get_products_from_db(2)
     env = Environment(
         loader=FileSystemLoader('../jinja2_templates'),
         autoescape=select_autoescape(['html'])
     )
     template = env.get_template('кости_jinja.html')
     rendered_page = template.render(
-        #
+        product1_name = product1[1],
+        product1_image1 = product1[5],
+        product1_image2 = product1[6],
+        product1_old_price = product1[4],
+        product1_price = product1[3],
+        product2_name = product2[1],
+        product2_image1 = product2[5],
+        product2_image2 = product2[6],
+        product2_old_price = product2[4],
+        product2_price = product2[3]
     )
     with open('../templates/кости.html', 'w', encoding="utf8") as file:
         file.write(rendered_page)

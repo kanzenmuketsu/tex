@@ -64,6 +64,3 @@ def get_products_from_db(product_number: int) -> tuple:
         result = cursor.fetchall()
 
     return result[product_number-1]
-
-
-print(get_products_from_db(2))
