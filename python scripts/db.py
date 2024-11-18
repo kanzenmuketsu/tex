@@ -63,7 +63,7 @@ def get_products_from_db(product_number: int):
         result = cursor.fetchall()
 
         for product in result:
-            for i in range(7):
+            for i in range(8):
                 print(db_structure[i], '--', product[i])
 
 get_products_from_db(2)
