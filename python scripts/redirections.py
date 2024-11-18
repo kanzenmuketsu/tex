@@ -210,8 +210,8 @@ async def main():
 @app.get('/кости.html')
 async def main():
 
-    product1 = get_products_from_db(1)
-    product2 = get_products_from_db(2)
+    product1 = list(get_products_from_db(1))
+    product2 = list(get_products_from_db(2))
 
     product1[4] = '' if product1[4] is None else product1[4]
     product2[4] = '' if product2[4] is None else product2[4]
