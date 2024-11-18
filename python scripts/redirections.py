@@ -215,6 +215,8 @@ async def main():
 
     product1[4] = '' if product1[4] is None else product1[4]
     product2[4] = '' if product2[4] is None else product2[4]
+    product1_button = 'Заказать' if  product1[-1] != 0 else 'Нет в наличии'
+    product2_button = 'Заказать' if  product2[-1] != 0 else 'Нет в наличии'
 
     env = Environment(
         loader=FileSystemLoader('../jinja2_templates'),
