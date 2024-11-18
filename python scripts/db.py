@@ -55,8 +55,9 @@ def get_user_from_db(username):
         }
         return d
 
-def get_products_from_db(product_number: int):
-    db_structure = ['id', 'name', 'info', 'price', 'old_price', 'img1', 'img2', 'img3']
+def get_products_from_db(product_number: int) -> tuple:
+    # db_structure ['id', 'name', 'info', 'price', 'old_price', 'img1', 'img2', 'img3'].
+
     query = f'SELECT * FROM {db_name}.products'
     with connection.cursor() as cursor:
         cursor.execute(query)
