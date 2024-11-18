@@ -207,6 +207,18 @@ async def main():
 ####################
 @app.get('/кости.html')
 async def main():
+
+    env = Environment(
+        loader=FileSystemLoader('../jinja2_templates'),
+        autoescape=select_autoescape(['html'])
+    )
+    template = env.get_template('кости_jinja.html')
+    rendered_page = template.render(
+        #
+    )
+    with open('../templates/кости.html', 'w', encoding="utf8") as file:
+        file.write(rendered_page)
+
     return FileResponse('../templates/кости.html')
 
 @app.get('/кости.css')

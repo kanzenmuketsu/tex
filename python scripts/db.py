@@ -54,3 +54,13 @@ def get_user_from_db(username):
             'hashed_pass': result[2]
         }
         return d
+
+def get_products_from_db(product_number: int):
+    query = f'SELECT * FROM {db_name}.products'
+    with connection.cursor() as cursor:
+        cursor.execute(query)
+        result = cursor.fetchall()
+
+        print(result)
+
+get_products_from_db(2)
