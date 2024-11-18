@@ -1,5 +1,5 @@
 
-from auth import current_user
+from auth import current_user, check_exist
 
 from fastapi import HTTPException, status
 from fastapi import FastAPI, Form, Response, Request
