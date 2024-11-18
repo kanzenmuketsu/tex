@@ -233,7 +233,9 @@ async def main():
         product2_image1 = product2[5], # img1.
         product2_image2 = product2[6], # img2.
         product2_old_price = product2[4], # old price.
-        product2_price = product2[3] # price.
+        product2_price = product2[3], # price.
+        product1_button = product1_button,
+        product2_button = product2_button
     )
     with open('../templates/кости.html', 'w', encoding="utf8") as file:
         file.write(rendered_page)
