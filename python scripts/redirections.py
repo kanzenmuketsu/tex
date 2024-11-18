@@ -153,7 +153,7 @@ async def main(request: Request):
             )
         template = env.get_template('личный-кабинет_jinja.html')
         rendered_page = template.render(
-            username="kevin smith"
+            username=current_user(request.cookies.get('auth_cookie'))
         )
         with open('../templates/личный-кабинет.html', 'w', encoding="utf8") as file:
             file.write(rendered_page)
