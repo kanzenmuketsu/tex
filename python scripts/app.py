@@ -37,7 +37,7 @@ async def main():
 @app.get('/users/test')
 async def test(request: Request):
     if request.cookies.get('auth_cookie'):
-        cr = current_user()
+        cr = current_user(request.cookies.get('auth_cookie'))
         print(cr)
         return {'cookie':request.cookies.get('auth_cookie'),
                 'ok': 'ok'}
