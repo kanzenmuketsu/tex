@@ -287,7 +287,7 @@ async def main():
         product1_price=product1[3],  # price.
         product1_button=product1_button,
     )
-    with open('../templates/кости.html', 'w', encoding="utf8") as file:
+    with open('../templates/череп.html', 'w', encoding="utf8") as file:
         file.write(rendered_page)
 
     return FileResponse('../templates/череп.html')
