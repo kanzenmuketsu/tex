@@ -84,11 +84,25 @@ async function POST(){
     }
 
 }
-function getCookie(name) {
+async function getCookie(name) {
   let cookie = {};
   document.cookie.split(';').forEach(function(el) {
     let split = el.split('=');
     cookie[split[0].trim()] = split.slice(1).join("=");
   })
   return cookie[name];
+}
+
+async function logout(){
+    const ZZZ = await fetch('/login', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: 'logout'
+        });
+    if (json["status_code"] == 200){
+        window.location.href = "/index.html";
+    }
+    else{
+        alert('error')
+       }
 }
