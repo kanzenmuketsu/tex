@@ -6,7 +6,6 @@ db_user = local_settings.DBUSER
 db_pass = local_settings.DBPASS
 db_name = local_settings.DBNAME
 
-
 connection = None
 try:
     connection = connect(
@@ -31,13 +30,15 @@ def check_exist(username):
 
 def insert_one(dictionary_data: dict): #username: username
     values = list(dictionary_data.values())
+    print(values)
     query = f'INSERT INTO users (username, email, hashed_password) VALUES (\'{values[0]}\', \'{values[1]}\', \'{values[2]}\')'
+    print(query)
     try:
         with connection.cursor() as cursor:
             cursor.execute(query)
             connection.commit()
-    except:
-        print('insertion user error')
+    except Error as e:
+        print('insertion user error', e)
 
 def get_user_from_db(username):
     query = f'SELECT * FROM {db_name}.users WHERE users.username = \'{username}\''
