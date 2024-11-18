@@ -64,6 +64,6 @@ def get_products_from_db(product_number: int):
 
         for product in result:
             for i in range(7):
-                print(db_structure[i], '--', result[i])
+                print(db_structure[i], '--', product[i])
 
 get_products_from_db(2)
