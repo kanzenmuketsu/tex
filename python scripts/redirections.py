@@ -279,7 +279,7 @@ async def main():
     )
     template = env.get_template('череп_jinja.html')
     rendered_page = template.render(
-        product1_name=product1[1],  # name.
+        product1_name= 'sdfkjsklfj',#product1[1],  # name.
         product1_image1=product1[5],  # img1.
         product1_image2=product1[6],  # img2.
         product1_image3 = product1[7],  # img3.
