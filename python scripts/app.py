@@ -31,18 +31,12 @@ def none_index():
     return FileResponse('../templates/index.html')
 
 @app.get('/')
-async def main():
+async def main(request: Request):
+    if request.cookies.get('auth_cookie'):
+        if check_exist(current_user(request.cookies.get('auth_cookie'))):
+            return FileResponse('../templates/личный-кабинет.html')
     return none_index()
 
-@app.get('/users/test')
-async def test(request: Request):
-    if request.cookies.get('auth_cookie'):
-        cr = current_user(request.cookies.get('auth_cookie'))
-
-        return {'cookie':request.cookies.get('auth_cookie'),
-                'ok': 'ok'}
-    return {'cookie':'a',
-                'ok': 'ok'}
 
 
 
