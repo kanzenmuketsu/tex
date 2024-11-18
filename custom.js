@@ -93,7 +93,7 @@ async function getCookie(name) {
   return cookie[name];
 }
 
-async function logout(){
+async function LOGOUT(){
     const ZZZ = await fetch('/logout', {
             method: 'POST',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
