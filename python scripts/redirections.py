@@ -65,7 +65,7 @@ async def users_login(response: Response,
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="please fill the login form")
     if authenticate_form_db(username=username,password=password):
         access_token = create_token(data={'sub': username})
-        response.set_cookie(key='auth_cookie', value=access_token)
+        response.set_cookie(key='auth_cookie', value=access_token, expires=999999)
         return HTTPException(status_code=200)
     return HTTPException(status_code=status.HTTP_418_IM_A_TEAPOT)
 
@@ -74,7 +74,7 @@ async def users_login(response: Response,
 async def users_logout(request: Request,
                        response: Response):
     response.delete_cookie(key='auth_cookie')
-    return RedirectResponse('/')
+    return HTTPException(status_code=HTTP_200_OK)
 
 
 @app.get('/index.html')
