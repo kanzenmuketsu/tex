@@ -1,4 +1,5 @@
-from random import randint
+
+from auth import current_user
 
 from fastapi import HTTPException, status
 from fastapi import FastAPI, Form, Response, Request
@@ -33,10 +34,10 @@ def none_index():
 async def main():
     return none_index()
 
-
-
 @app.get('/users/test')
 async def test(request: Request):
+    cr = current_user()
+    print(cr)
     if request.cookies.get('auth_cookie'):
         return {'cookie':request.cookies.get('auth_cookie'),
                 'ok': 'ok'}
