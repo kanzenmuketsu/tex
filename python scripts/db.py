@@ -62,8 +62,7 @@ def get_products_from_db(product_number: int):
         cursor.execute(query)
         result = cursor.fetchall()
 
-        for product in result:
-            for i in range(8):
-                print(db_structure[i], '--', product[i])
+    return result[product_number-1]
 
-get_products_from_db(2)
+
+print(get_products_from_db(2))
