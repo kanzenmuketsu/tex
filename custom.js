@@ -94,11 +94,12 @@ async function getCookie(name) {
 }
 
 async function logout(){
-    const ZZZ = await fetch('/login', {
+    const ZZZ = await fetch('/logout', {
             method: 'POST',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             body: 'logout'
         });
+    const json = await ZZZ.json();
     if (json["status_code"] == 200){
         window.location.href = "/index.html";
     }
