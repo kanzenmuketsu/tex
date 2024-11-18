@@ -266,32 +266,11 @@ async def main():
 async def main():
     return FileResponse('../prod.json')
 
-#################
+
 @app.get('/products/череп.html')
 async def main():
-    product1 = list(get_products_from_db(1))
-    product1[4] = '' if product1[4] is None else product1[4]
-    product1_button = 'Заказать' if product1[-1] != 0 else 'Нет в наличии'
-
-    env = Environment(
-        loader=FileSystemLoader('../jinja2_templates'),
-        autoescape=select_autoescape(['html'])
-    )
-    template = env.get_template('череп_jinja.html')
-    rendered_page = template.render(
-        product1_name= 'sdfkjsklfj',#product1[1],  # name.
-        product1_image1=product1[5],  # img1.
-        product1_image2=product1[6],  # img2.
-        product1_image3 = product1[7],  # img3.
-        product1_old_price=product1[4],  # old price.
-        product1_price=product1[3],  # price.
-        product1_button=product1_button,
-    )
-    with open('../templates/череп.html', 'w', encoding="utf8") as file:
-        file.write(rendered_page)
-
     return FileResponse('../templates/череп.html')
-################
+
 @app.get('/Product-Details-Template.css')
 async def main():
     return FileResponse('../static/Product-Details-Template.css')
