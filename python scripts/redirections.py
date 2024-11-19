@@ -82,7 +82,6 @@ async def users_logout(request: Request,
 @app.get('/index.html')
 async def main(request: Request):
     if request.cookies.get('auth_cookie'):
-        print('asdasdasd')
         env = Environment(
             loader=FileSystemLoader('../jinja2_templates'),
             autoescape=select_autoescape(['html'])
