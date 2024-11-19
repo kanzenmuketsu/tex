@@ -32,10 +32,11 @@ def none_index():
 
 @app.get('/')
 async def main(request: Request):
-    if request.cookies.get('auth_cookie'):
-        if check_exist(current_user(request.cookies.get('auth_cookie'))):
-            return FileResponse('../templates/личный-кабинет.html')
-    return none_index()
+    return FileResponse('../templates/О-нас.html')
+    #if request.cookies.get('auth_cookie'):
+        #if check_exist(current_user(request.cookies.get('auth_cookie'))):
+            #return FileResponse('../templates/личный-кабинет.html')
+    #return none_index()
 
 
 
