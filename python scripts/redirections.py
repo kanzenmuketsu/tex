@@ -271,7 +271,7 @@ async def main():
 @app.get('/products/{page_name}', response_class=HTMLResponse)
 async def main(page_name: str):
 
-    product = list(get_products_from_db(2))
+    product = list(get_products_from_db(1))
     product[4] = '' if product[4] is None else product[4]
     product_button = 'Заказать' if product[-1] != 0 else 'Нет в наличии'
 
@@ -282,7 +282,7 @@ async def main(page_name: str):
     template = env.get_template('череп_jinja.html')
     rendered_page = template.render(
         product_name=product[1],  # name.
-        product_info=product[2].replace('/n', '<br>'),  # info.
+        product_info=product[2].replace('/n', '&#10;&#13;'),  # info.
         product_image1=product[5],  # img1.
         product_image2=product[6],  # img2.
         product_image3=product[7],  # img3.
