@@ -93,7 +93,7 @@
                     {{product_info}}<!--/product_description-->
                </div></div>
             </div><!--product_title-->
-            <h2 class="u-product-control u-text u-text-default u-text-2">Череп</h2><!--/product_title--><!--product_price-->
+            <h2 class="u-product-control u-text u-text-default u-text-2">{{product_name}}</h2><!--/product_title--><!--product_price-->
             <div class="u-product-control u-product-price u-product-price-1" data-add-zero-cents="true">
               <div class="u-price-wrapper u-spacing-10"><!--product_old_price-->
                 <div class="u-hide-price u-old-price" style="text-decoration: line-through !important;">{{product_old_price}}&nbsp;₽</div><!--/product_old_price--><!--product_regular_price-->
@@ -189,9 +189,9 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
               <div class="u-container-style u-products-item u-repeater-item" data-product-id="1">
                 <div class="u-container-layout u-similar-container u-container-layout-2">
                   <h5 class="u-align-left u-product-control u-text u-text-2">
-                    <a class="u-product-title-link" href="#">Череп</a>
+                    <a class="u-product-title-link" href="#">{{product_name}}</a>
                   </h5>
-                  <div class="u-align-left u-product-control u-product-desc u-text u-text-3">Полное соответствие</div>
+                  <div class="u-align-left u-product-control u-product-desc u-text u-text-3">{{product_info}}</div>
                   <div class="u-align-left u-product-control u-product-quantity u-product-quantity-1">
                     <div class="u-hidden u-quantity-label">Quantity</div>
                     <div class="u-border-1 u-border-grey-30 u-quantity-input u-radius-50">
@@ -206,8 +206,8 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
                   </div>
                   <div data-add-zero-cents="true" class="u-align-left u-product-control u-product-price u-product-price-1">
                     <div class="u-price-wrapper u-spacing-10">
-                      <div class="u-old-price" style="text-decoration: line-through !important;">100,00&nbsp;₽</div>
-                      <div class="u-price" style="font-size: 1.25rem; font-weight: 700;">0,00&nbsp;₽</div>
+                      <div class="u-old-price" style="text-decoration: line-through !important;">{{product_old_price}}&nbsp;₽</div>
+                      <div class="u-price" style="font-size: 1.25rem; font-weight: 700;">{{product_price}}&nbsp;₽</div>
                     </div>
                   </div>
                 </div>

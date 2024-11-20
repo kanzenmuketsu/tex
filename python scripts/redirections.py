@@ -282,7 +282,7 @@ async def main(page_name: str):
     template = env.get_template('череп_jinja.html')
     rendered_page = template.render(
         product_name=product[1],  # name.
-        product_info=product[2].replace('/n', '\n'),  # info.
+        product_info=product[2].replace('/n', '<br>'),  # info.
         product_image1=product[5],  # img1.
         product_image2=product[6],  # img2.
         product_image3=product[7],  # img3.
