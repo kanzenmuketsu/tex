@@ -143,6 +143,12 @@
 }
 
 @media (max-width: 991px) {
+    .u-section-1 .u-text-1 {
+        font-size: 1.25rem;
+        margin: 170 30 0 20;
+    }
+
+
   .u-section-1 .u-shape-1 {
     width: 720px;
   }
