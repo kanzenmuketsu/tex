@@ -269,29 +269,28 @@ async def main():
 
 @app.get('/products/череп.html')
 async def main():
-    async def main():
-        product = list(get_products_from_db(1))
-        product[4] = '' if product[4] is None else product[4]
-        product_button = 'Заказать' if product[-1] != 0 else 'Нет в наличии'
+    product = list(get_products_from_db(1))
+    product[4] = '' if product[4] is None else product[4]
+    product_button = 'Заказать' if product[-1] != 0 else 'Нет в наличии'
 
-        env = Environment(
-            loader=FileSystemLoader('../jinja2_templates'),
-            autoescape=select_autoescape(['html'])
-        )
-        template = env.get_template('череп_jinja.html')
-        rendered_page = template.render(
-            product_name=product[1],  # name.
-            product_image1=product[5],  # img1.
-            product_image2=product[6],  # img2.
-            product_image3=product[7],  # img3.
-            product_old_price=product[4],  # old price.
-            product_price=product[3],  # price.
-            product_button=product_button
-        )
-        with open('../templates/череп.html', 'w', encoding="utf8") as file:
-            file.write(rendered_page)
+    env = Environment(
+        loader=FileSystemLoader('../jinja2_templates'),
+        autoescape=select_autoescape(['html'])
+    )
+    template = env.get_template('череп_jinja.html')
+    rendered_page = template.render(
+        product_name=product[1],  # name.
+        product_image1=product[5],  # img1.
+        product_image2=product[6],  # img2.
+        product_image3=product[7],  # img3.
+        product_old_price=product[4],  # old price.
+        product_price=product[3],  # price.
+        product_button=product_button
+    )
+    with open('../templates/череп.html', 'w', encoding="utf8") as file:
+        file.write(rendered_page)
 
-        return FileResponse('../templates/череп.html')
+    return FileResponse('../templates/череп.html')
 
 @app.get('/Product-Details-Template.css')
 async def main():
