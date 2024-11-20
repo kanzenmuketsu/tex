@@ -119,11 +119,17 @@
 }
 
 @media (max-width: 1199px) {
+    .u-section-1 .u-text-1 {
+        font-size: 1.25rem;
+        width: 940px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-left: 220px;
+    }
+
   .u-section-1 .u-shape-1 {
     width: 940px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-left: 220px;
+    margin-right: 0;
   }
 
   .u-section-1 .u-product-1 {
