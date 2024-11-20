@@ -156,11 +156,7 @@
 
 @media (max-width: 991px) {
     .u-section-1 .u-text-1 {
-        font-size: 1.25rem;
-        margin: 170 30 0 20;
-    }
-    .m-991{
-        display: inline;
+        display: none;
     }
 
   .u-section-1 .u-shape-1 {
@@ -176,6 +172,9 @@
   .u-section-1 .u-shape-1 {
     width: 540px;
   }
+  .u-section-1 .u-text-1 {
+        display: none;
+    }
 
   .u-section-1 .u-group-1 {
     margin-right: 0;
@@ -191,6 +190,9 @@
   .u-section-1 .u-shape-1 {
     width: 340px;
   }
+  .u-section-1 .u-text-1 {
+        display: none;
+    }
 
   .u-section-1 .u-group-1 {
     width: 340px;
