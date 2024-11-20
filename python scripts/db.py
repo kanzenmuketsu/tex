@@ -46,9 +46,7 @@ def get_product_from_db_by_name(page_name):
     with connection.cursor() as cursor:
         cursor.execute(query)
         result = cursor.fetchall()
-    print(page_name)
-    print(result)
-    return list(result)
+    return list(result[0])
 
 def get_user_from_db(username):
     query = f'SELECT * FROM {db_name}.users WHERE users.username = \'{username}\''
