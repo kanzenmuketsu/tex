@@ -1,6 +1,9 @@
 .u-section-1 .u-sheet-1 {
   min-height: 890px;
 }
+.m-991{
+        display: none;
+}
 
 .u-section-1 .u-shape-1 {
   width: 1200px;
