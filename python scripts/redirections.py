@@ -271,7 +271,7 @@ async def main():
 @app.get('/products/{page_name}', response_class=HTMLResponse)
 async def main(page_name: str):
 
-    product = list(get_products_from_db(2))
+    product = list(get_product_from_db_by_name(page_name))
     product[4] = '' if product[4] is None else product[4]
     product_button = 'Заказать' if product[-1] != 0 else 'Нет в наличии'
 
@@ -311,9 +311,9 @@ async def main():
 async def main():
     return FileResponse('../images/calendar.jpeg')
 
-@app.get('/products/тестовый-слепок.html')
-async def main():
-    return FileResponse('../templates/тестовый-слепок.html')
+#@app.get('/products/тестовый-слепок.html')
+#async def main():
+    #return FileResponse('../templates/тестовый-слепок.html')
 
 @app.get('/images/testbone.png')
 async def main():

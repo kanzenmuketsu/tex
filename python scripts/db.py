@@ -40,6 +40,15 @@ def insert_one(dictionary_data: dict): #username: username
     except Error as e:
         print('insertion user error', e)
 
+def get_product_from_db_by_name(page_name):
+    page_name = page_name.split('.')[0]
+    query = f'SELECT * FROM {db_name}.products WHERE products.name = \'{page_name}\''
+    with connection.cursor() as cursor:
+        cursor.execute(query)
+        result = cursor.fetchall()
+
+    return list(result)
+
 def get_user_from_db(username):
     query = f'SELECT * FROM {db_name}.users WHERE users.username = \'{username}\''
     with connection.cursor() as cursor:
