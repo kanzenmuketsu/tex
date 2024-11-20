@@ -5,8 +5,9 @@ from starlette.status import HTTP_200_OK
 from app import  app
 from auth import *
 from fastapi import HTTPException, Form, Response
-from fastapi.responses import FileResponse, RedirectResponse, JSONResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from fastapi.requests import Request
+from fastapi.templating import Jinja2Templates
 from jinja2 import Environment, select_autoescape, FileSystemLoader
 import mails
 from db import *
@@ -267,9 +268,8 @@ async def main():
     return FileResponse('../prod.json')
 
 
-@app.get('/products/{page}')
+@app.get('/products/{page}.html', response_class=HTMLResponse)
 async def main():
-    print(page)
     product = list(get_products_from_db(1))
     product[4] = '' if product[4] is None else product[4]
     product_button = 'Заказать' if product[-1] != 0 else 'Нет в наличии'
