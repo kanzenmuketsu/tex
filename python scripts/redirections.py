@@ -269,7 +269,8 @@ async def main():
 
 
 @app.get('/products/{page}.html', response_class=HTMLResponse)
-async def main():
+async def main(pagename: str):
+    print(pagename)
     product = list(get_products_from_db(1))
     product[4] = '' if product[4] is None else product[4]
     product_button = 'Заказать' if product[-1] != 0 else 'Нет в наличии'
