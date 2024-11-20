@@ -267,8 +267,9 @@ async def main():
     return FileResponse('../prod.json')
 
 
-@app.get('/products/череп.html')
+@app.get('/products/{page}')
 async def main():
+    print(page)
     product = list(get_products_from_db(1))
     product[4] = '' if product[4] is None else product[4]
     product_button = 'Заказать' if product[-1] != 0 else 'Нет в наличии'
