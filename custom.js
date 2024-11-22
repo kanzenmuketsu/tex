@@ -110,6 +110,7 @@ async function LOGOUT(){
        }
 }
 async function showpopup(id){
+    alert(id)
     if (document.getElementById(id).innerText == 'Нет в наличии'){
         return false;
     }
