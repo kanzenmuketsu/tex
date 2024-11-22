@@ -110,7 +110,7 @@ async function LOGOUT(){
        }
 }
 async function showpopup(){
-    if (document.getElementById("btm").innerText = 'Нет в наличии'){
+    if (document.getElementById("btm").innerText == 'Нет в наличии'){
         return false;
     }
     document.getElementById("popup-overlay").style.display = 'block';
