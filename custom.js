@@ -134,6 +134,3 @@ async function buy(){
 async function hidePopup() {
   popupOverlay.style.display = "none";
 }
-
-popupOverlay.addEventListener("click", hidePopup);
-popup.addEventListener("click", (event) =&gt; event.stopPropagation());
