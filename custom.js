@@ -111,8 +111,7 @@ async function LOGOUT(){
 }
 
 async function buy(){
-    document.getElementById('popup-overlay').display = inline;
-
+    document.getElementById("popup-overlay").style.display = 'block';
     var product_name = document.getElementById('product_name').innerText;
 
     const formData = new URLSearchParams();
