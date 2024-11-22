@@ -116,17 +116,14 @@ async function showpopup(){
     document.getElementById("popup-overlay").style.display = 'block';
     document.getElementById("prev").style.display = 'none';
     document.getElementById("next").style.display = 'none';
-    setCookie("id", Math.floor(Math.random * 88888), 365);
     }
 
 async function buy(){
 
-    id = getCookie("userId");
     var product_name = document.getElementById('product_name').innerText;
 
     const formData = new URLSearchParams();
     formData.append("product_name", product_name);
-    formData.append("orderID", id);
 
     const Z = await fetch('/add_to_cart', {
             method: 'POST',
