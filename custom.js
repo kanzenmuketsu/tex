@@ -110,6 +110,9 @@ async function LOGOUT(){
        }
 }
 async function showpopup(){
+    if (document.getElementById("btm").innerText = 'Нет в наличии'){
+        return false;
+    }
     document.getElementById("popup-overlay").style.display = 'block';
     document.getElementById("prev").style.display = 'none';
     document.getElementById("next").style.display = 'none';
@@ -117,7 +120,6 @@ async function showpopup(){
 
 async function buy(){
     var product_name = document.getElementById('product_name').innerText;
-    var product_amount = document.getElementById('amount').innerText;
 
     const formData = new URLSearchParams();
     formData.append("product_name", product_name);

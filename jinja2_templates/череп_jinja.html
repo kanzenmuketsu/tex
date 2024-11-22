@@ -101,7 +101,7 @@
                 <div class="u-price u-text-palette-3-base" style="font-size: 1.875rem; font-weight: 700; margin: auto;">{{product_price}}&nbsp;₽</div><!--/product_regular_price-->
               </div>
             </div><!--/product_price--><!--product_button--><!--options_json--><!--{"clickType":"buy-now","content":"Добавить в корзину"}--><!--/options_json-->
-            <a onclick="showpopup();return false;" class="u-btn u-button-style u-custom-color-4 u-product-control u-btn-1 u-dialog-link u-payment-button disabled" style="margin: auto;">{{product_button}}</a>
+            <a id='btm' onclick="showpopup();return false;" class="u-btn u-button-style u-custom-color-4 u-product-control u-btn-1 u-dialog-link u-payment-button disabled" style="margin: auto;">{{product_button}}</a>
               <div class="m-991">{{product_info}}</div>
               <!--/product_button--><!--product_gallery--><!--options_json--><!--{"maxItems":""}--><!--/options_json-->
             <div class="u-carousel u-gallery u-layout-thumbnails u-no-transition u-product-control u-product-zoom u-show-text-on-hover u-thumbnails-position-left u-gallery-1" data-interval="5000" data-u-ride="carousel" id="carousel-03e4">
@@ -187,7 +187,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
 <div id="popup-overlay">
   <div id="popup">
     <h3>Добавить к заказу</h3>
-      <div class="number">
+      <div class="number" style="margin: auto;margin-left: 99px;">
 	    <button class="number-minus" type="button" onclick="this.nextElementSibling.stepDown(); this.nextElementSibling.onchange();">-</button>
 	    <input id="amount" type="number" min="0" max="{{product_amount}}"  readonly>
 	    <button class="number-plus" type="button" onclick="this.previousElementSibling.stepUp(); this.previousElementSibling.onchange();">+</button>
