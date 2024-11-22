@@ -110,5 +110,20 @@ async function LOGOUT(){
 
 async function buy(){
     var product_name = document.getElementById('product_name').innerText;
-    alert(product_name)
+
+    const formData = new URLSearchParams();
+    formData.append("product_name", product_name);
+
+    const Z = await fetch('/add_to_cart', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: formData
+        });
+
+    const json = await Z.json();
+    if (json["status_code"] == 418){
+    }
+    if (json["status_code"] == 200){
+        alert('ok')
+    }
 }

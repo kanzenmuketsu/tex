@@ -101,7 +101,7 @@
                 <div class="u-price u-text-palette-3-base" style="font-size: 1.875rem; font-weight: 700; margin: auto;">{{product_price}}&nbsp;₽</div><!--/product_regular_price-->
               </div>
             </div><!--/product_price--><!--product_button--><!--options_json--><!--{"clickType":"buy-now","content":"Добавить в корзину"}--><!--/options_json-->
-            <a onclick="buy();return false;" class="u-btn u-button-style u-custom-color-4 u-product-control u-btn-1 u-dialog-link u-payment-button disabled" style="margin: auto;">{{product_button}}</a>
+            <a href="#carousel_register" class="u-btn u-button-style u-custom-color-4 u-product-control u-btn-1 u-dialog-link u-payment-button disabled" style="margin: auto;">{{product_button}}</a>
               <div class="m-991">{{product_info}}</div>
               <!--/product_button--><!--product_gallery--><!--options_json--><!--{"maxItems":""}--><!--/options_json-->
             <div class="u-carousel u-gallery u-layout-thumbnails u-no-transition u-product-control u-product-zoom u-show-text-on-hover u-thumbnails-position-left u-gallery-1" data-interval="5000" data-u-ride="carousel" id="carousel-03e4">
@@ -182,68 +182,82 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
         <a href="https://pt.2035.university/project/sibgmu202472" class="u-active-none u-border-0 u-btn u-button-style u-hover-feature u-hover-none u-none u-btn-1" target="_blank" rel="nofollow"><span class="u-file-icon u-icon u-text-white u-icon-1"><img src="/149.png" alt=""></span>&nbsp;Страничка проекта 
         </a>
       </div></footer>
-  <section class="u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-payment-dialog u-valign-middle u-dialog-section-4" id="sec-dd8a">
-      <div class="u-align-center u-container-align-center u-container-style u-dialog u-radius-25 u-shape-round u-white u-dialog-1">
-        <div class="u-container-layout u-valign-bottom u-container-layout-1">
-          <h5 class="u-align-left u-text u-text-1">Buy Now</h5>
-          <div class="u-expanded-width u-products u-products-1" data-site-sorting-prop="created" data-site-sorting-order="desc" data-items-per-page="1">
-            <div class="u-list-control"></div>
-            <div class="u-repeater u-repeater-1">
-              <div class="u-container-style u-products-item u-repeater-item" data-product-id="1">
-                <div class="u-container-layout u-similar-container u-container-layout-2">
-                  <h5 class="u-align-left u-product-control u-text u-text-2">
-                    <a class="u-product-title-link" href="#">{{product_name}}</a>
-                  </h5>
-                  <div class="u-align-left u-product-control u-product-desc u-text u-text-3">{{product_info}}</div>
-                  <div class="u-align-left u-product-control u-product-quantity u-product-quantity-1">
-                    <div class="u-hidden u-quantity-label">Quantity</div>
-                    <div class="u-border-1 u-border-grey-30 u-quantity-input u-radius-50">
-                      <a class="disabled minus u-button-style u-quantity-button u-text-body-color">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m 4 8 h 8" fill="none" stroke="currentColor" stroke-width="1" fill-rule="evenodd"></path></svg>
-                      </a>
-                      <input class="u-input" type="text" value="1" pattern="[0-9]+">
-                      <a class="plus u-button-style u-quantity-button u-text-body-color">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m 4 8 h 8 M 8 4 v 8" fill="none" stroke="currentColor" stroke-width="1" fill-rule="evenodd"></path></svg>
-                      </a>
+
+
+  <section class="u-align-center u-black u-clearfix u-container-align-center u-container-style u-dialog-block u-opacity u-opacity-70 u-valign-middle u-dialog-section-11" id="carousel_buy">
+      <div class="u-align-center u-border-4 u-border-palette-1-light-1 u-container-align-center u-container-style u-dialog u-palette-1-light-3 u-radius u-shape-round u-dialog-1">
+        <div class="u-container-layout u-valign-bottom u-container-layout-1" style="padding-bottom: 10px">
+          <div id="dont_match" style="display: none; color: #66e6c8;background: #ae0b0bcc;">Пароли не совпадают, проверьте, правильно ли вы ввели свои данные.</div>
+          <div id="invalid_code" style="display: none; color: #66e6c8;background: #ae0b0bcc;">Неверный код.</div>
+          <div id="already_exist" style="display: none; color: #66e6c8;background: #ae0b0bcc;">Имя пользователя или почта уже зарегистрирована.</div>
+            <div class="custom-expanded u-container-style u-group u-shape-rectangle u-group-1" style="margin-top: -100px;padding-bottom: 19px;">
+            <div class="u-container-layout u-container-layout-2">
+              <h2 class="u-align-center u-text u-text-3" style="margin-top: -40px;margin-bottom: 80px;">Первый шаг - знакомство
+              </h2>
+              <h6 class="u-align-center u-custom-font u-font-playfair-display u-text u-text-default u-text-2" style="margin-bottom: 80px;">Не упустите возможность стать одним из немногих, кто получает качественное образование почти даром</h6>
+              <div class="u-carousel u-carousel-duration-250 u-carousel-fade u-form u-progress-text-hidden-sm u-progress-text-hidden-xs u-form-1" data-interval="0" data-u-ride="false" id="carousel-register2">
+
+                  <form class="u-clearfix u-form-spacing-23 u-form-vertical" id= "Form register" action="/register"  style="padding: 0px;"  name="register" autocomplete = off>
+                  <div class="u-carousel-inner" role="listbox">
+                    <div  class="u-carousel-item u-form-step u-slide u-active">
+                      <div  class="u-form-email u-form-group u-label-none">
+                        <label  class="u-label u-text-grey-30 u-label-1">Email Address</label>
+                        <input id="reg_username" type="text" placeholder="Имя пользователя" name="username" class="u-border-4 u-input u-input-rectangle u-radius u-input-1" required="" minlength="3" maxlength="40" style="margin-bottom: 5px">
+                        <input id="email" type="email" name="email" class="u-border-4 u-input u-input-rectangle u-radius u-input-1" required="" placeholder="email ">
+                      </div>
                     </div>
-                  </div>
-                  <div data-add-zero-cents="true" class="u-align-left u-product-control u-product-price u-product-price-1">
-                    <div class="u-price-wrapper u-spacing-10">
-                      <div class="u-old-price" style="text-decoration: line-through !important;">{{product_old_price}}&nbsp;₽</div>
-                      <div class="u-price" style="font-size: 1.25rem; font-weight: 700;">{{product_price}}&nbsp;₽</div>
+                    <div id="start-form" class="u-carousel-item u-form-step u-slide">
+                      <div class="u-form-group u-label-none u-form-group-2">
+                        <label  class="u-label u-text-grey-30 u-label-2">Поле ввода</label>
+                        <input id="reg_pass1" type="password" placeholder="Пароль [минимум 6 символов]" name="password" class="u-border-4 u-input u-input-rectangle u-radius u-input-2" minlength="6" required="required" autofocus="autofocus" style="margin-bottom: 5px;">
+                        <input id="reg_pass2" type="password" placeholder="Еще разок" name="password" class="u-border-4 u-input u-input-rectangle u-radius u-input-2" minlength="6" required="required">
+                      </div>
                     </div>
+                      <div class="">
+                      <div id="code" class="u-form-group u-label-none u-form-group-2" style="display: none">
+                        <label class="u-label u-text-grey-30 u-label-2">Поле ввода</label>
+                        <input id="email_code" type="text" placeholder="Введите код,который мы отправли на вашу почту" name="email_code" class="u-border-4 u-input u-input-rectangle u-radius u-input-2" minlength="6" required="required" autofocus="autofocus" style="margin-bottom: 5px;">
+                      </div>
+                    </div>
+
                   </div>
-                </div>
+                  <div class="u-align-center u-form-group u-form-submit u-label-none">
+
+                    <a href="#" class="u-black u-btn u-btn-step u-btn-step-prev u-button-style u-hidden u-btn-1">Назад</a>
+                    <a href="#" class="u-black u-btn u-btn-step u-btn-step-next u-button-style u-btn-1">Дальше</a>
+                    <a onclick="registration();return false;" href="#" class="u-black u-btn u-btn-submit u-button-style u-hidden u-btn-1" >Готово </a>
+
+                  </div>
+
+
+
+                  </form>
               </div>
-            </div>
-            <div class="u-list-control"></div>
-          </div>
-          <div class="u-expanded-width u-payment-services u-tab-links-align-justify u-tab-payment u-tab-vertical u-tabs u-payment-services-1" data-payment-order-approved-message="Your order has been approved. Thank you!" data-payment-order-cancelled-message="Unable to process your order. Please try again later.">
-            <ul class="u-tab-list u-unstyled" role="tablist"><li class="u-tab-item" role="presentation"><a class="active u-active-grey-10 u-button-style u-payment-paypal u-tab-link u-text-body-color" id="link-tab-9cb3" href="#tab-9cb3" role="tab" aria-controls="tab-9cb3" aria-selected="true"><input type="radio" class="u-field-input u-grey-15 u-radius-15" name="payment-group" checked="checked"><span>Paypal</span><svg class="u-svg-content" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"><path fill="#009EE3" d="M11,5.9H18c3.8,0,5.2,1.9,4.9,4.7c-0.3,4.7-3.2,7.2-6.9,7.2h-1.9c-0.5,0-0.8,0.3-0.9,1.3l-0.8,4.3
-  c-0.1,0.3-0.2,0.5-0.5,0.6H7.6c-0.4,0-0.5-0.3-0.4-1l2.6-16C9.9,6.3,10.2,5.9,11,5.9z"></path><path fill="#113984" d="M6.7,0h7.1c2,0,4.3,0.1,5.9,1.5c1.1,0.9,1.6,2.4,1.5,4c-0.4,5.4-3.7,8.5-8,8.5H9.6c-0.6,0-0.9,0.4-1.2,1.5
-  l-0.9,5.1C7.4,21,7.3,21.3,7,21.3H2.6C2,21.3,1.9,21,2,20.1L5.2,1.3C5.3,0.4,5.7,0,6.7,0z"></path><path fill="#172C70" d="M8.6,14.8l1.3-7.9c0.1-0.7,0.5-1,1.3-1h7.1c1.2,0,2.1,0.2,2.8,0.5c-0.7,4.8-3.8,7.5-7.9,7.5H9.6
-  C9.1,13.9,8.8,14.1,8.6,14.8z"></path></svg>
-</a>
-</li><li class="u-tab-item" role="presentation"><a class="u-active-grey-10 u-button-style u-payment-stripe u-tab-link u-text-body-color" id="link-tab-ab80" href="#tab-ab80" role="tab" aria-controls="tab-ab80" aria-selected="false"><input type="radio" class="u-field-input u-grey-15 u-radius-15" name="payment-group">Stripe<svg class="u-svg-content" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24"><path fill="#635BFF" d="M14,9.2c-2.3-0.8-3.4-1.5-3.4-2.4c0-0.8,0.8-1.3,2-1.3c2.3,0,4.7,0.8,6.4,1.6l0.9-5.5
-  c-1.3-0.5-4-1.6-7.7-1.6C9.6,0,7.5,0.7,5.8,1.9C4.1,3.2,3.4,4.9,3.4,7.2c0,4,2.6,5.7,6.8,7.2c2.7,0.9,3.6,1.6,3.6,2.5
-  c0,0.9-0.9,1.6-2.4,1.6c-1.9,0-5.2-0.9-7.3-2.1L3,22c1.8,0.9,5.1,2,8.7,2c2.8,0,5.1-0.7,6.6-1.9c1.8-1.3,2.7-3.2,2.7-5.7
-  C20.9,12.3,18.2,10.7,14,9.2L14,9.2z"></path></svg>
-</a>
-</li></ul>
-            <div class="u-tab-content">
-              <div class="u-container-style u-payment-paypal u-tab-active u-tab-pane" id="tab-9cb3" role="tabpanel" aria-labelledby="link-tab-9cb3">
-                <div class="u-container-layout u-payment-services-inner u-container-layout-3">Loading...</div>
-              </div>
-              <div class="u-container-style u-payment-stripe u-tab-pane" id="tab-ab80" role="tabpanel" aria-labelledby="link-tab-ab80">
-                <div class="u-container-layout u-valign-top u-container-layout-4">
-                  <a href="#" class="u-btn u-button-style u-stripe-button u-btn-1">Pay with Stripe</a>
-                </div>
-              </div>
+
+
+
+
+              <h5 class="u-align-center u-text u-text-default u-text-3">
+                <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-hover-palette-4-dark-2 u-btn-4" data-href="политика.html" data-target="_blank"> Мы заботимся о ваших данных.</a>
+              </h5>
+
             </div>
           </div>
-        </div><button class="u-dialog-close-button u-icon u-text-grey-40 u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-efe9"></use></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-efe9"><rect x="7" y="0" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -3.3138 8.0002)" width="2" height="16"></rect><rect x="0" y="7" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -3.3138 8.0002)" width="16" height="2"></rect></svg></button>
+        </div>
+        <button class="u-dialog-close-button u-icon u-text-grey-50 u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 413.348 413.348" style=""><use xlink:href="#svg-5801"></use></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 413.348 413.348" id="svg-5801"><path d="m413.348 24.354-24.354-24.354-182.32 182.32-182.32-182.32-24.354 24.354 182.32 182.32-182.32 182.32 24.354 24.354 182.32-182.32 182.32 182.32 24.354-24.354-182.32-182.32z"></path></svg></button>
       </div>
-    </section><style>.u-dialog-section-4 .u-dialog-1 {
+    </section>
+
+
+
+
+
+
+
+
+
+
+ <style>.u-dialog-section-4 .u-dialog-1 {
   width: 570px;
   min-height: 578px;
   height: auto;

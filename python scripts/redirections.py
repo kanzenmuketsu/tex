@@ -265,6 +265,19 @@ async def main():
     return FileResponse('../prod.json')
 
 
+
+@app.post('/add_to_cart')
+async def add_to_cart(response: Response,
+                      product_name: str = Form(..., min_length=3)):
+
+    product = get_product_from_db_by_name(product_name)
+    amount = product[-1]
+
+
+
+    pass
+
+
 @app.get('/products/{page_name}', response_class=HTMLResponse)
 async def main(page_name: str):
     product = list(get_product_from_db_by_name(page_name))
