@@ -6,10 +6,11 @@ from passlib.context import CryptContext
 from datetime import timedelta, datetime
 from typing import Annotated
 from db import get_user_from_db, check_exist
+import local_settings
 
-secret_key = 'ifuioeruoiwurioewurioweuoiruewoi'
+secret_key = local_settings.SECRET_KEY
 ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_HOUR = 24
+ACCESS_TOKEN_EXPIRE_HOUR = 48
 
 
 get_cookie = APIKeyCookie(name='auth_cookie')

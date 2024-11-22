@@ -7,17 +7,25 @@ db_pass = local_settings.DBPASS
 db_name = local_settings.DBNAME
 
 connection = None
-try:
-    connection = connect(
-        host=db_host,
-        user=db_user,
-        password=db_pass,
-        auth_plugin='mysql_native_password',
-        database=db_name)
-    print("database connected")
-except Error as e:
-    print(e)
+def connect_db():
+    try:
+        global connection
+        connection = connect(
 
+        host=db_host,
+
+        user=db_user,
+
+        password=db_pass,
+
+        auth_plugin='mysql_native_password',
+
+        database=db_name)
+
+        print("database connected")
+    except Error as e:
+        print(e)
+connect_db()
 def check_exist(username):
     query = f'SELECT username FROM {db_name}.users'
     with connection.cursor() as cursor:
@@ -30,9 +38,7 @@ def check_exist(username):
 
 def insert_one(dictionary_data: dict): #username: username
     values = list(dictionary_data.values())
-    print(values)
     query = f'INSERT INTO users (username, email, hashed_password) VALUES (\'{values[0]}\', \'{values[1]}\', \'{values[2]}\')'
-    print(query)
     try:
         with connection.cursor() as cursor:
             cursor.execute(query)
