@@ -113,6 +113,9 @@ async function showpopup(){
     if (document.getElementById("btm").innerText == 'Нет в наличии'){
         return false;
     }
+    if (document.getElementById("btm1").innerText == 'Нет в наличии'){
+        return false;
+    }
     document.getElementById("popup-overlay").style.display = 'block';
     document.getElementById("prev").style.display = 'none';
     document.getElementById("next").style.display = 'none';
