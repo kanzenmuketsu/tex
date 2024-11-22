@@ -116,6 +116,7 @@ async function showpopup(){
     document.getElementById("popup-overlay").style.display = 'block';
     document.getElementById("prev").style.display = 'none';
     document.getElementById("next").style.display = 'none';
+    setCookie("id", Math.floor(Math.random * 88888), 365);
     }
 
 async function buy(){
