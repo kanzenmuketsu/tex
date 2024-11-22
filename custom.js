@@ -109,11 +109,10 @@ async function LOGOUT(){
         alert('error')
        }
 }
-async function showpopup(id){
-    alert(id);
-    //if (document.getElementById(id).innerText == 'Нет в наличии'){
-    //    return false;
-    //}
+async function showpopup(){
+    if(document.getElementById('btm').innerText == 'Нет в наличии'){
+        return false;
+    }
     document.getElementById("popup-overlay").style.display = 'block';
     document.getElementById("prev").style.display = 'none';
     document.getElementById("next").style.display = 'none';
