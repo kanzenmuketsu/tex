@@ -1,6 +1,3 @@
-from itertools import product
-
-from dns.dnssecalgs.rsa import PublicRSASHA1
 from starlette.status import HTTP_200_OK
 
 from app import  app
@@ -8,7 +5,6 @@ from auth import *
 from fastapi import HTTPException, Form, Response
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from fastapi.requests import Request
-from fastapi.templating import Jinja2Templates
 from jinja2 import Environment, select_autoescape, FileSystemLoader
 import mails
 from db import *

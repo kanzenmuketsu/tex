@@ -107,3 +107,8 @@ async function LOGOUT(){
         alert('error')
        }
 }
+
+async function buy(){
+    var product_name = document.getElementById('product_name').value;
+    alert(product_name)
+}

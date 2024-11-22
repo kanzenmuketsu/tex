@@ -27,6 +27,7 @@ def connect_db():
         print(e)
 connect_db()
 def check_exist(username):
+    connect_db()
     query = f'SELECT username FROM {db_name}.users'
     with connection.cursor() as cursor:
         cursor.execute(query)
@@ -37,6 +38,7 @@ def check_exist(username):
         return username in list_usernames
 
 def insert_one(dictionary_data: dict): #username: username
+    connect_db()
     values = list(dictionary_data.values())
     query = f'INSERT INTO users (username, email, hashed_password) VALUES (\'{values[0]}\', \'{values[1]}\', \'{values[2]}\')'
     try:
@@ -47,6 +49,7 @@ def insert_one(dictionary_data: dict): #username: username
         print('insertion user error', e)
 
 def get_product_from_db_by_name(page_name):
+    connect_db()
     page_name = page_name.split('.')[0].replace('-', ' ')
     query = f'SELECT * FROM {db_name}.products WHERE products.short_info = \'{page_name}\''
     with connection.cursor() as cursor:
@@ -55,6 +58,7 @@ def get_product_from_db_by_name(page_name):
     return list(result[0])
 
 def get_user_from_db(username):
+    connect_db()
     query = f'SELECT * FROM {db_name}.users WHERE users.username = \'{username}\''
     with connection.cursor() as cursor:
         cursor.execute(query)
@@ -70,6 +74,7 @@ def get_user_from_db(username):
         return d
 
 def get_products_from_db(product_number: int) -> tuple:
+    connect_db()
     # db_structure ['id', 'name', 'info', 'price', 'old_price', 'img1', 'img2', 'img3', 'amount'].
 
     query = f'SELECT * FROM {db_name}.products'
