@@ -109,6 +109,6 @@ async function LOGOUT(){
 }
 
 async function buy(){
-    var product_name = document.getElementById('product_name').text;
+    var product_name = document.getElementById('product_name').innerText;
     alert(product_name)
 }
