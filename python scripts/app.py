@@ -1,11 +1,12 @@
 from fastapi import FastAPI, Request
-from fastapi.templating import Jinja2Templates
+#from fastapi.templating import Jinja2Templates
 import uvicorn
+from fastapi.responses import FileResponse
 
 
 
 app = FastAPI()
-templates = Jinja2Templates(directory='.')
+#templates = Jinja2Templates(directory='.')
 
 @app.get('/')
 async def main(request: Request):
