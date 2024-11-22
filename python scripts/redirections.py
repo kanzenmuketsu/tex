@@ -297,6 +297,7 @@ async def main(page_name: str):
         product_image3=product[7],  # img3.
         product_old_price=product[4],  # old price.
         product_price=product[3],  # price.
+        product_amount=product[-1],
         product_button=product_button
     )
     with open('../templates/череп.html', 'w', encoding="utf8") as file:
