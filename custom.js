@@ -1,3 +1,5 @@
+const popupOverlay = document.getElementById("popup-overlay");
+const popup = document.getElementById("popup");
 
 async function registration(){
     var username = document.getElementById('reg_username').value;
@@ -109,6 +111,7 @@ async function LOGOUT(){
 }
 
 async function buy(){
+    popupOverlay.style.display = "block";
     var product_name = document.getElementById('product_name').innerText;
 
     const formData = new URLSearchParams();
@@ -128,14 +131,7 @@ async function buy(){
     }
 }
 
-const popupOverlay = document.getElementById("popup-overlay");
-const popup = document.getElementById("popup");
-
-function showPopup() {
-  popupOverlay.style.display = "block";
-}
-
-function hidePopup() {
+async function hidePopup() {
   popupOverlay.style.display = "none";
 }
 
