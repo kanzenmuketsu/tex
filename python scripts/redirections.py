@@ -267,11 +267,20 @@ async def main():
 
 
 @app.post('/add_to_cart')
-async def add_to_cart(response: Response,
-                      product_name: str = Form(..., min_length=3)):
+async def add_to_cart(request: Request,
+                      product_name: str = Form(..., min_length=3),
+                      amount: str = Form(...,)):
 
-    product = get_product_from_db_by_name(product_name)
-    amount = product[-1]
+    if not request.cookies.get('auth_cookie'):
+        return HTTPException(status_code=status.HTTP_409_CONFLICT)
+
+
+    orderid = get_order_id()
+    product_id = get_product_from_db_by_name(product_name)[0]
+    user = current_user(request.cookies.get('auth_cookie'))
+
+    d ={'id':orderid, 'pr':product_id, 'us':user, 'am':amount }
+    insert_order(d)
 
     return HTTPException(status_code=status.HTTP_200_OK)
 

@@ -121,9 +121,11 @@ async function showpopup(){
 async function buy(){
 
     var product_name = document.getElementById('product_name').innerText;
+    var amount = document.getElementById('amount').value;
 
     const formData = new URLSearchParams();
     formData.append("product_name", product_name);
+    formData.append("amount", amount);
 
     const Z = await fetch('/add_to_cart', {
             method: 'POST',

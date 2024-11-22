@@ -37,10 +37,21 @@ def check_exist(username):
             list_usernames.append(name[0])
         return username in list_usernames
 
+def insert_order(dictionary_data: dict):
+    connect_db()
+    values = list(dictionary_data.values())
+    query = f'INSERT INTO {db_name}.order (order_id, product_id, user_id, count) VALUES (\'{values[0]}\', \'{values[1]}\', \'{values[2]}\', \'{values[3]}\')'
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(query)
+            connection.commit()
+    except Error as e:
+        print('insertion user error', e)
+
 def insert_one(dictionary_data: dict): #username: username
     connect_db()
     values = list(dictionary_data.values())
-    query = f'INSERT INTO users (username, email, hashed_password) VALUES (\'{values[0]}\', \'{values[1]}\', \'{values[2]}\')'
+    query = f'INSERT INTO {db_name}.users (username, email, hashed_password) VALUES (\'{values[0]}\', \'{values[1]}\', \'{values[2]}\')'
     try:
         with connection.cursor() as cursor:
             cursor.execute(query)
@@ -83,3 +94,15 @@ def get_products_from_db(product_number: int) -> tuple:
         result = cursor.fetchall()
 
     return result[product_number-1]
+
+
+def get_order_id():
+    with open('orders.txt') as read:
+        order_id = int(read.readline())
+    return order_id
+
+def inc_order_id():
+    with open('orders.txt') as read:
+        order_id = int(read.readline())
+    with open('orders.txt','w') as write:
+        write.write(str(order_id + 1))
