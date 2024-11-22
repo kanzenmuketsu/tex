@@ -119,8 +119,8 @@ async function showpopup(){
     }
 
 async function buy(){
-    const orderID = Math.floor(Math.random() * 88888888)
-    document.cookie = "orderID=" + orderID;
+    const orderID = Math.floor(Math.random() * 88888888);
+    id = getCookie("userId");
     var product_name = document.getElementById('product_name').innerText;
 
     const formData = new URLSearchParams();
