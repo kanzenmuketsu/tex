@@ -119,11 +119,13 @@ async function showpopup(){
     }
 
 async function buy(){
+    const orderID = Math.floor(Math.random() * 88888888)
+    document.cookie = "orderID=" + orderID;
     var product_name = document.getElementById('product_name').innerText;
 
     const formData = new URLSearchParams();
     formData.append("product_name", product_name);
-    formData.append("product_amount", product_amount);
+    formData.append("orderID", orderID);
 
     const Z = await fetch('/add_to_cart', {
             method: 'POST',
