@@ -111,9 +111,9 @@ async function LOGOUT(){
 }
 async function showpopup(id){
     alert(id);
-    if (document.getElementById(id).innerText == 'Нет в наличии'){
-        return false;
-    }
+    //if (document.getElementById(id).innerText == 'Нет в наличии'){
+    //    return false;
+    //}
     document.getElementById("popup-overlay").style.display = 'block';
     document.getElementById("prev").style.display = 'none';
     document.getElementById("next").style.display = 'none';
