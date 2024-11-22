@@ -273,9 +273,7 @@ async def add_to_cart(response: Response,
     product = get_product_from_db_by_name(product_name)
     amount = product[-1]
 
-
-
-    pass
+    return HTTPException(status_code=status.HTTP_200_OK)
 
 
 @app.get('/products/{page_name}', response_class=HTMLResponse)
