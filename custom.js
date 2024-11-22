@@ -112,6 +112,8 @@ async function LOGOUT(){
 
 async function buy(){
     document.getElementById("popup-overlay").style.display = 'block';
+    document.getElementById("prev").style.display = 'none';
+    document.getElementById("next").style.display = 'none';
     var product_name = document.getElementById('product_name').innerText;
 
     const formData = new URLSearchParams();
@@ -132,5 +134,7 @@ async function buy(){
 }
 
 async function hidePopup() {
-  popupOverlay.style.display = "none";
+  document.getElementById("popup-overlay").style.display = 'none';
+  document.getElementById("prev").style.display = 'inline';
+  document.getElementById("next").style.display = 'inline';
 }
