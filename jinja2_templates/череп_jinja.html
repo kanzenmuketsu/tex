@@ -101,7 +101,7 @@
                 <div class="u-price u-text-palette-3-base" style="font-size: 1.875rem; font-weight: 700; margin: auto;">{{product_price}}&nbsp;₽</div><!--/product_regular_price-->
               </div>
             </div><!--/product_price--><!--product_button--><!--options_json--><!--{"clickType":"buy-now","content":"Добавить в корзину"}--><!--/options_json-->
-            <a href="#carousel_buy" class="u-btn u-button-style u-custom-color-4 u-product-control u-btn-1 u-dialog-link u-payment-button disabled" style="margin: auto;">{{product_button}}</a>
+            <a onclick="showPopup()" class="u-btn u-button-style u-custom-color-4 u-product-control u-btn-1 u-dialog-link u-payment-button disabled" style="margin: auto;">{{product_button}}</a>
               <div class="m-991">{{product_info}}</div>
               <!--/product_button--><!--product_gallery--><!--options_json--><!--{"maxItems":""}--><!--/options_json-->
             <div class="u-carousel u-gallery u-layout-thumbnails u-no-transition u-product-control u-product-zoom u-show-text-on-hover u-thumbnails-position-left u-gallery-1" data-interval="5000" data-u-ride="carousel" id="carousel-03e4">
@@ -184,72 +184,13 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
       </div></footer>
 
 
-  <section class="u-align-center u-black u-clearfix u-container-align-center u-container-style u-dialog-block u-opacity u-opacity-70 u-valign-middle u-dialog-section-11" id="carousel_buy">
-      <div class="u-align-center u-border-4 u-border-palette-1-light-1 u-container-align-center u-container-style u-dialog u-palette-1-light-3 u-radius u-shape-round u-dialog-1">
-        <div class="u-container-layout u-valign-bottom u-container-layout-1" style="padding-bottom: 10px">
-          <div id="dont_match" style="display: none; color: #66e6c8;background: #ae0b0bcc;">Пароли не совпадают, проверьте, правильно ли вы ввели свои данные.</div>
-          <div id="invalid_code" style="display: none; color: #66e6c8;background: #ae0b0bcc;">Неверный код.</div>
-          <div id="already_exist" style="display: none; color: #66e6c8;background: #ae0b0bcc;">Имя пользователя или почта уже зарегистрирована.</div>
-            <div class="custom-expanded u-container-style u-group u-shape-rectangle u-group-1" style="margin-top: -100px;padding-bottom: 19px;">
-            <div class="u-container-layout u-container-layout-2">
-              <h2 class="u-align-center u-text u-text-3" style="margin-top: -40px;margin-bottom: 80px;">Первый шаг - знакомство
-              </h2>
-              <h6 class="u-align-center u-custom-font u-font-playfair-display u-text u-text-default u-text-2" style="margin-bottom: 80px;">Не упустите возможность стать одним из немногих, кто получает качественное образование почти даром</h6>
-              <div class="u-carousel u-carousel-duration-250 u-carousel-fade u-form u-progress-text-hidden-sm u-progress-text-hidden-xs u-form-1" data-interval="0" data-u-ride="false" id="carousel-register2">
-
-                  <form class="u-clearfix u-form-spacing-23 u-form-vertical" id= "Form register" action="/register"  style="padding: 0px;"  name="register" autocomplete = off>
-                  <div class="u-carousel-inner" role="listbox">
-                    <div  class="u-carousel-item u-form-step u-slide u-active">
-                      <div  class="u-form-email u-form-group u-label-none">
-                        <label  class="u-label u-text-grey-30 u-label-1">Email Address</label>
-                        <input id="reg_username" type="text" placeholder="Имя пользователя" name="username" class="u-border-4 u-input u-input-rectangle u-radius u-input-1" required="" minlength="3" maxlength="40" style="margin-bottom: 5px">
-                        <input id="email" type="email" name="email" class="u-border-4 u-input u-input-rectangle u-radius u-input-1" required="" placeholder="email ">
-                      </div>
-                    </div>
-                    <div id="start-form" class="u-carousel-item u-form-step u-slide">
-                      <div class="u-form-group u-label-none u-form-group-2">
-                        <label  class="u-label u-text-grey-30 u-label-2">Поле ввода</label>
-                        <input id="reg_pass1" type="password" placeholder="Пароль [минимум 6 символов]" name="password" class="u-border-4 u-input u-input-rectangle u-radius u-input-2" minlength="6" required="required" autofocus="autofocus" style="margin-bottom: 5px;">
-                        <input id="reg_pass2" type="password" placeholder="Еще разок" name="password" class="u-border-4 u-input u-input-rectangle u-radius u-input-2" minlength="6" required="required">
-                      </div>
-                    </div>
-                      <div class="">
-                      <div id="code" class="u-form-group u-label-none u-form-group-2" style="display: none">
-                        <label class="u-label u-text-grey-30 u-label-2">Поле ввода</label>
-                        <input id="email_code" type="text" placeholder="Введите код,который мы отправли на вашу почту" name="email_code" class="u-border-4 u-input u-input-rectangle u-radius u-input-2" minlength="6" required="required" autofocus="autofocus" style="margin-bottom: 5px;">
-                      </div>
-                    </div>
-
-                  </div>
-                  <div class="u-align-center u-form-group u-form-submit u-label-none">
-
-                    <a href="#" class="u-black u-btn u-btn-step u-btn-step-prev u-button-style u-hidden u-btn-1">Назад</a>
-                    <a href="#" class="u-black u-btn u-btn-step u-btn-step-next u-button-style u-btn-1">Дальше</a>
-                    <a onclick="registration();return false;" href="#" class="u-black u-btn u-btn-submit u-button-style u-hidden u-btn-1" >Готово </a>
-
-                  </div>
-
-
-
-                  </form>
-              </div>
-
-
-
-
-              <h5 class="u-align-center u-text u-text-default u-text-3">
-                <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-hover-palette-4-dark-2 u-btn-4" data-href="политика.html" data-target="_blank"> Мы заботимся о ваших данных.</a>
-              </h5>
-
-            </div>
-          </div>
-        </div>
-        <button class="u-dialog-close-button u-icon u-text-grey-50 u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 413.348 413.348" style=""><use xlink:href="#svg-5801"></use></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 413.348 413.348" id="svg-5801"><path d="m413.348 24.354-24.354-24.354-182.32 182.32-182.32-182.32-24.354 24.354 182.32 182.32-182.32 182.32 24.354 24.354 182.32-182.32 182.32 182.32 24.354-24.354-182.32-182.32z"></path></svg></button>
-      </div>
-    </section>
-
-
-
+<div id="popup-overlay">
+  <div id="popup">
+    <h3>Пример всплывающего окна</h3>
+    <p>Это пример всплывающего окна с использованием HTML, CSS и JavaScript. 😊</p>
+    <button onclick="hidePopup()">Закрыть окно</button>
+  </div>
+</div>
 
 
 
