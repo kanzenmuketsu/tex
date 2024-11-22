@@ -109,15 +109,19 @@ async function LOGOUT(){
         alert('error')
        }
 }
-
-async function buy(){
+async function showpopup(){
     document.getElementById("popup-overlay").style.display = 'block';
     document.getElementById("prev").style.display = 'none';
     document.getElementById("next").style.display = 'none';
+    }
+
+async function buy(){
     var product_name = document.getElementById('product_name').innerText;
+    var product_amount = document.getElementById('amount').innerText;
 
     const formData = new URLSearchParams();
     formData.append("product_name", product_name);
+    formData.append("product_amount", product_amount);
 
     const Z = await fetch('/add_to_cart', {
             method: 'POST',
