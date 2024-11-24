@@ -449,7 +449,7 @@ async def main(request: Request):
         )
         template = env.get_template('корзина_jinja.html')
         rendered_page = template.render(
-            display="none"
+            users=['1','2','3']
         )
         with open('../templates/корзина.html', 'w', encoding="utf8") as file:
             file.write(rendered_page)

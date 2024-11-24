@@ -85,14 +85,15 @@
       <div class="u-clearfix u-sheet u-valign-top u-sheet-1">
         <div class="custom-expanded u-custom-color-6 u-radius u-shape u-shape-round u-shape-1"></div>
         <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
-          <div><button class="u-btn u-button-style u-custom-color-4 u-product-control u-btn-1 u-dialog-link u-payment-button disabled">Оформить заказ</button></div>
+          <div><button style="padding-top: 10px;padding-bottom: 10px;margin: auto;" class="u-btn u-button-style u-custom-color-4 u-product-control u-btn-1 u-dialog-link u-payment-button disabled">Оформить заказ</button></div>
           <div class="u-layout">
-            <div class="u-layout-col">
+
+{% for user in users %}<div class="u-layout-col">
               <div class="u-size-20">
                 <div class="u-layout-row">
                   <div class="u-container-style u-layout-cell u-size-15 u-size-30-md u-layout-cell-1">
                     <div class="u-container-layout u-container-layout-1">
-                      <h1 class="u-text u-text-default u-text-1">Товар</h1>
+                      <h1 class="u-text u-text-default u-text-1">{{user}}</h1>
                     </div>
                   </div>
                   <div class="u-container-style u-layout-cell u-size-15 u-size-30-md u-layout-cell-2">
@@ -138,34 +139,8 @@
                   </div>
                 </div>
               </div>
-              <div class="u-size-20">
-                <div class="u-layout-row">
-                  <div class="u-container-style u-layout-cell u-size-15 u-size-30-md u-layout-cell-9">
-                    <div class="u-container-layout u-container-layout-9">
-                      <div class="u-expanded-width u-palette-1-base u-preserve-proportions u-shape u-shape-rectangle u-shape-3">
-                        <div class="u-preserve-proportions-child" style="padding-top: 100%;"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="u-container-style u-layout-cell u-size-15 u-size-30-md u-layout-cell-10">
-                    <div class="u-container-layout u-valign-middle u-container-layout-10">
-                      <h4 class="u-text u-text-default u-text-8">20</h4>
-                    </div>
-                  </div>
-                  <div class="u-container-style u-layout-cell u-size-15 u-size-30-md u-layout-cell-11">
-                    <div class="u-container-layout u-valign-middle u-container-layout-11">
-                      <h4 class="u-text u-text-default u-text-9">20</h4>
-                    </div>
-                  </div>
-                  <div class="u-container-style u-layout-cell u-size-15 u-size-30-md u-layout-cell-12">
-                    <div class="u-container-layout u-valign-middle u-container-layout-12">
-                      <h4 class="u-text u-text-default u-text-10">20</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
+          </div>{% endfor %}
         </div>
       </div>
     </section>
