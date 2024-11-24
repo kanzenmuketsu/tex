@@ -108,6 +108,9 @@ async function LOGOUT(){
        }
 }
 async function showpopup(){
+
+    if (getCookie('auth_cookie'))
+    { return false}
     if(document.getElementById('btm').innerText == 'Нет в наличии'){
         return false;
     }
