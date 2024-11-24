@@ -139,6 +139,7 @@ async function buy(){
     }
 }
 
+
 async function hidePopup() {
   document.getElementById("popup-overlay").style.display = 'none';
   document.getElementById("prev").style.display = 'inline';
