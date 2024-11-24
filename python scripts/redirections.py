@@ -433,11 +433,30 @@ async def main():
 async def main():
     return FileResponse('../images/comment.png')
 ###################################
-#      корзиеа
+#      корзина
 ##################################
 @app.get('/корзина.html')
-async def main():
-    return FileResponse('../templates/корзина.html')
+async def main(request: Request):
+    if request.cookies.get('auth_cookie'):
+        username = current_user(request.cookies.get('auth_cookie'))
+
+        if type(username) != str:
+            return FileResponse('../templates/index.html')
+
+        env = Environment(
+            loader=FileSystemLoader('../jinja2_templates'),
+            autoescape=select_autoescape(['html'])
+        )
+        template = env.get_template('корзина_jinja.html')
+        rendered_page = template.render(
+            display="none"
+        )
+        with open('../templates/корзина.html', 'w', encoding="utf8") as file:
+            file.write(rendered_page)
+
+        return FileResponse('../templates/корзина.html')
+
+    return FileResponse('../templates/index.html')
 
 @app.get('/корзина.css')
 async def main():
