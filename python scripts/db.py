@@ -117,7 +117,7 @@ def add_new_user_to_orders(username):
         write.write(username + '0' + '\n')
 
 def inc_order_id(username):
-
+    username = username.replace(' ', '%%')
     with open('orders.txt') as read:
         orders = read.readlines()
 
@@ -151,3 +151,6 @@ def get_products_from_cart(username):
 
     else:
         return result
+
+
+inc_order_id('Kevin Smith')
