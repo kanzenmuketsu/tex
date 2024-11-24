@@ -98,6 +98,7 @@ def get_products_from_db(product_number: int) -> tuple:
 
 
 def get_order_id(username):
+    username = username.replace(' ', '%%')
     with open('orders.txt') as read:
         orders = read.readlines()
 
@@ -111,6 +112,7 @@ def get_order_id(username):
             return int(order[1])
 
 def add_new_user_to_orders(username):
+    username = username.replace(' ', '%%')
     with open('orders.txt','a') as write:
         write.write(username + '0' + '\n')
 
