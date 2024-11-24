@@ -445,7 +445,17 @@ async def main(request: Request):
         if type(username) != str:
             return FileResponse('../templates/index.html')
 
-        products = get_products_from_cart(username)
+        orders = get_products_from_cart(username)
+        products = []
+        for order in orders:
+            tmp = []
+            pr = get_products_from_db(order[1])
+            tmp.append(pr[5])
+            tmp.append(pr[3])
+            tmp.append(order[3])
+            products.append(tmp)
+
+
         print(products)
         env = Environment(
             loader=FileSystemLoader('../jinja2_templates'),
