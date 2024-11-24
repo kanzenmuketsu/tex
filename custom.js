@@ -150,10 +150,10 @@ async function hidePopup() {
 }
 
 async function OFFER(){
-    if (await document.getElementsByClassName("pr") === undefined){
+    if (document.getElementsByClassName("pr") === undefined){
         return false;
     }
-    alert(await document.getElementsByClassName("pr"))
+    alert(document.getElementsByClassName("pr"))
     const ZZZZ = await fetch('/confirm_offer', {
             method: 'POST',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
