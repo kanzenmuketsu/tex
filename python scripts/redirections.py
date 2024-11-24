@@ -1,5 +1,6 @@
 from itertools import product
 
+from click import confirm
 from starlette.status import HTTP_200_OK
 
 from app import  app
@@ -474,3 +475,21 @@ async def main(request: Request):
 @app.get('/корзина.css')
 async def main():
     return FileResponse('../static/корзина.css')
+
+@app.post('/confirm_offer')
+async def confirm_offer(request: Request):
+    user = current_user(request.cookies.get('auth_cookie'))
+    orderid = get_order_id(user)
+
+    connect_db()
+    query = f'UPDATE {db_name}.order SET confirmed = 1  WHERE order.username = \'{user}\' && order.order_id = \'{orderid}\';'
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(query)
+            connection.commit()
+    except Error as e:
+        print('insertion user error', e)
+    else:
+        return HTTPException(status_code=status.HTTP_200_OK)
+
+    return HTTPException(status_code=status.HTTP_402_PAYMENT_REQUIRED)
