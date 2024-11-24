@@ -1,12 +1,10 @@
-const popupOverlay = document.getElementById("popup-overlay");
-const popup = document.getElementById("popup");
 
 async function registration(){
     var username = document.getElementById('reg_username').value;
     var email = document.getElementById('email').value;
     var pass1 = document.getElementById('reg_pass1').value;
     var pass2 = document.getElementById('reg_pass2').value;
-    var email_id = getCookie('id')
+    var email_id = await getCookie('id')
     var email_code = document.getElementById('email_code').value;
 
     if (email_code == "") {
