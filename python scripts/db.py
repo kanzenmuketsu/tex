@@ -97,13 +97,39 @@ def get_products_from_db(product_number: int) -> tuple:
     return result[product_number-1]
 
 
-def get_order_id():
+def get_order_id(username):
     with open('orders.txt') as read:
-        order_id = int(read.readline())
-    return order_id
+        orders = read.readlines()
 
-def inc_order_id():
+
+    for i in range(len(orders)):
+        orders[i] = (orders[i].split())
+
+
+    for order in orders:
+        if username == order[0]:
+            return int(order[1])
+
+def add_new_user_to_orders(username):
+    with open('orders.txt','a') as write:
+        write.write(username + '0' + '\n')
+
+def inc_order_id(username):
+
     with open('orders.txt') as read:
-        order_id = int(read.readline())
+        orders = read.readlines()
+
+
+    for i in range(len(orders)):
+        orders[i] = (orders[i].split())
+
+    for order in orders:
+        if username == order[0]:
+            order[1] = str(int(order[1]) + 1)
+
+
     with open('orders.txt','w') as write:
-        write.write(str(order_id + 1))
+        for order in orders:
+            for elemetnt in order:
+                write.write(elemetnt + ' ')
+            write.write('\n')

@@ -52,6 +52,7 @@ async def users_register(response: Response,
 
     access_token = create_token(data={'sub': form_data.username})
     response.set_cookie(key='auth_cookie', value=access_token)
+
     return HTTPException(status_code=HTTP_200_OK, detail="success")
 
 
@@ -274,10 +275,9 @@ async def add_to_cart(request: Request,
     if not request.cookies.get('auth_cookie'):
         return HTTPException(status_code=status.HTTP_409_CONFLICT)
 
-
-    orderid = get_order_id()
-    product_id = get_product_from_db_by_name(product_name)[0]
     user = current_user(request.cookies.get('auth_cookie'))
+    orderid = get_order_id(user)
+    product_id = get_product_from_db_by_name(product_name)[0]
 
     d ={'id':orderid, 'pr':product_id, 'us':user, 'am':amount }
     insert_order(d)
