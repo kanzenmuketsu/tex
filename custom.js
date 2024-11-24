@@ -153,12 +153,13 @@ async function OFFER(){
     if (document.getElementsByClassName("u-size-20") === undefined){
         return false;
     }
+    alert(document.getElementsByClassName("u-size-20"))
     const ZZZZ = await fetch('/confirm_offer', {
             method: 'POST',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             body: 'offer'
         });
-    const json = await ZZZ.json();
+    const json = await ZZZZ.json();
     if (json["status_code"] == 200){
         window.location.href = "/index.html";
     }
