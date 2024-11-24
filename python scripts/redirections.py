@@ -54,6 +54,7 @@ async def users_register(response: Response,
 
     access_token = create_token(data={'sub': form_data.username})
     response.set_cookie(key='auth_cookie', value=access_token)
+    add_new_user_to_orders(form_data.username)
 
     return HTTPException(status_code=HTTP_200_OK, detail="success")
 
