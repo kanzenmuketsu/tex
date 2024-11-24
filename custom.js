@@ -150,7 +150,7 @@ async function hidePopup() {
 }
 
 async function OFFER(){
-    let number = document.getElementsByTagName("u-size-20").length;
+    let number = document.getElementsByClassName("u-size-20").length;
     alert(number)
     if (number === 1){
         return false;
