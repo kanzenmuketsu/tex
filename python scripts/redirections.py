@@ -490,6 +490,7 @@ async def confirm_offer(request: Request):
     except Error as e:
         print('insertion user error', e)
     else:
+        inc_order_id(user)
         return HTTPException(status_code=status.HTTP_200_OK)
 
     return HTTPException(status_code=status.HTTP_402_PAYMENT_REQUIRED)
