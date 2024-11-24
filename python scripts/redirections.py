@@ -455,8 +455,6 @@ async def main(request: Request):
             tmp.append(order[3])
             products.append(tmp)
 
-
-        print(products)
         env = Environment(
             loader=FileSystemLoader('../jinja2_templates'),
             autoescape=select_autoescape(['html'])

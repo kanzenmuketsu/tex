@@ -148,3 +148,21 @@ async function hidePopup() {
   document.getElementById("prev").style.display = 'inline';
   document.getElementById("next").style.display = 'inline';
 }
+
+async function OFFER(){
+    if (document.getElementsByClassName("u-size-20") === undefined){
+        return false;
+    }
+    const ZZZZ = await fetch('/confirm_offer', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: 'offer'
+        });
+    const json = await ZZZ.json();
+    if (json["status_code"] == 200){
+        window.location.href = "/index.html";
+    }
+    else{
+        alert('error')
+       }
+}
