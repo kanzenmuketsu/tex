@@ -88,12 +88,12 @@
           <div><button style="padding-top: 10px;padding-bottom: 10px;margin: auto;" class="u-btn u-button-style u-custom-color-4 u-product-control u-btn-1 u-dialog-link u-payment-button disabled">Оформить заказ</button></div>
           <div class="u-layout">
 
-{% for user in users %}<div class="u-layout-col">
+            <div class="u-layout-col">
               <div class="u-size-20">
                 <div class="u-layout-row">
                   <div class="u-container-style u-layout-cell u-size-15 u-size-30-md u-layout-cell-1">
                     <div class="u-container-layout u-container-layout-1">
-                      <h1 class="u-text u-text-default u-text-1">{{user}}</h1>
+                      <h1 class="u-text u-text-default u-text-1">Товар</h1>
                     </div>
                   </div>
                   <div class="u-container-style u-layout-cell u-size-15 u-size-30-md u-layout-cell-2">
@@ -113,12 +113,12 @@
                   </div>
                 </div>
               </div>
-              <div class="u-size-20">
+              {% for product in products %}<div class="u-size-20">
                 <div class="u-layout-row">
                   <div class="u-container-align-center u-container-style u-layout-cell u-size-15 u-size-30-md u-layout-cell-5">
                     <div class="u-container-layout u-container-layout-5">
                       <div class="u-expanded-width u-palette-1-base u-preserve-proportions u-shape u-shape-rectangle u-shape-2">
-                        <div class="u-preserve-proportions-child" style="padding-top: 100%;"></div>
+                        <img class="u-back-image u-expanded u-image-contain" src="../images/images1.png">
                       </div>
                     </div>
                   </div>
