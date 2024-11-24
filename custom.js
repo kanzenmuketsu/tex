@@ -135,7 +135,8 @@ async function buy(){
     if (json["status_code"] == 418){
     }
     if (json["status_code"] == 200){
-        alert('ok')
+        hidePopup();
+        alert('ok');
     }
 }
 

@@ -41,6 +41,7 @@ def insert_order(dictionary_data: dict):
     connect_db()
     values = list(dictionary_data.values())
     query = f'INSERT INTO {db_name}.order (order_id, product_id, user_id, count) VALUES (\'{values[0]}\', \'{values[1]}\', \'{values[2]}\', \'{values[3]}\')'
+    print(query)
     try:
         with connection.cursor() as cursor:
             cursor.execute(query)
