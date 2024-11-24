@@ -109,7 +109,7 @@ async function LOGOUT(){
 }
 async function showpopup(){
 
-    alert( await getCookie('auth_cookie'))
+    if( await getCookie('auth_cookie') === undefined)
     { return false}
     if(document.getElementById('btm').innerText == 'Нет в наличии'){
         return false;
