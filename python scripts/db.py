@@ -40,8 +40,7 @@ def check_exist(username):
 def insert_order(dictionary_data: dict):
     connect_db()
     values = list(dictionary_data.values())
-    values[2] = list(get_user_from_db(values[2]))[0]
-    query = f'INSERT INTO {db_name}.order (order_id, product_id, user_id, count) VALUES (\'{values[0]}\', \'{values[1]}\', \'{values[2]}\', \'{values[3]}\')'
+    query = f'INSERT INTO {db_name}.order (order_id, product_id, username, count) VALUES (\'{values[0]}\', \'{values[1]}\', \'{values[2]}\', \'{values[3]}\')'
     print(query)
     try:
         with connection.cursor() as cursor:
