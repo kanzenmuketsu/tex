@@ -1,3 +1,5 @@
+from itertools import product
+
 from starlette.status import HTTP_200_OK
 
 from app import  app
@@ -443,13 +445,15 @@ async def main(request: Request):
         if type(username) != str:
             return FileResponse('../templates/index.html')
 
+        products = get_products_from_cart(username)
+        print(products)
         env = Environment(
             loader=FileSystemLoader('../jinja2_templates'),
             autoescape=select_autoescape(['html'])
         )
         template = env.get_template('корзина_jinja.html')
         rendered_page = template.render(
-            products=['1','2','3']
+            products=products
         )
         with open('../templates/корзина.html', 'w', encoding="utf8") as file:
             file.write(rendered_page)

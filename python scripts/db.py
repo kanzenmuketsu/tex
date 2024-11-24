@@ -94,7 +94,7 @@ def get_products_from_db(product_number: int) -> tuple:
         cursor.execute(query)
         result = cursor.fetchall()
 
-    return result[product_number-1]
+    return result[product_number - 1]
 
 
 def get_order_id(username):
@@ -133,3 +133,19 @@ def inc_order_id(username):
             for elemetnt in order:
                 write.write(elemetnt + ' ')
             write.write('\n')
+
+def get_products_from_cart(username):
+    connect_db()
+    # db_structure [order_id, product_id, name, amount].
+    id = get_order_id(username)
+
+    query = f'SELECT * FROM {db_name}.order WHERE order.username = \'{username}\' && order.order_id = \'{id}\''
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(query)
+            result = cursor.fetchall()
+    except Error as e:
+        print('insertion user error', e)
+
+    else:
+        return result
